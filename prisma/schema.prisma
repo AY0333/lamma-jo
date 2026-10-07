@@ -1,0 +1,189 @@
+// Lamma JO — Prisma schema
+// Dual-mode booking: DAY_USE (استراحة نهارية) + FULL_EVENT (حجز مناسبة كاملة)
+// SQLite for local MVP — same schema migrates to PostgreSQL for production.
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+enum UserRole {
+  CUSTOMER
+  FARM_OWNER
+  SUPPLIER
+  ADMIN
+}
+
+enum FarmStatus {
+  DRAFT
+  PENDING_REVIEW
+  PUBLISHED
+  SUSPENDED
+}
+
+enum BookingMode {
+  DAY_USE     // استراحة نهارية (ساعات)
+  FULL_EVENT  // حجز مناسبة كاملة (يوم كامل/ليلة)
+}
+
+enum BookingStatus {
+  PENDING_OWNER   // بانتظار موافقة المالك
+  CONFIRMED       // مؤكد
+  REJECTED        // مرفوض
+  CANCELLED       // ملغي
+  COMPLETED       // مكتمل
+}
+
+enum PaymentMethod {
+  ON_ARRIVAL   // دفع عند الوصول (المرحلة 1)
+  BANK_TRANSFER // تحويل بنكي يدوي
+  ONLINE        // بوابة إلكترونية (المرحلة 2)
+}
+
+enum PaymentStatus {
+  UNPAID
+  DEPOSIT_PAID
+  FULLY_PAID
+  REFUNDED
+}
+
+model User {
+  id        String   @id @default(cuid())
+  name      String
+  phone     String   @unique
+  role      UserRole @default(CUSTOMER)
+  createdAt DateTime @default(now())
+
+  farms    Farm[]    @relation("FarmOwner")
+  bookings Booking[]
+  reviews  Review[]
+}
+
+model Farm {
+  id              String     @id @default(cuid())
+  name            String
+  slug            String     @unique
+  governorate     String     // المحافظة: عمّان، إربد، الزرقاء...
+  area            String     // المنطقة: عجلون، البحر الميت...
+  address         String?
+  mapUrl          String?
+  description     String
+  capacityDayUse  Int        // سعة الاستراحة
+  capacityEvent   Int        // سعة المناسبة
+  bedrooms        Int        @default(0)
+  bathrooms       Int        @default(0)
+  hasPool         Boolean    @default(false)
+  hasPlayground   Boolean    @default(false)
+  hasBBQ          Boolean    @default(false)
+  priceDayUse     Float      // سعر الاستراحة (دينار)
+  priceFullEvent  Float      // سعر الحجز الكامل (دينار)
+  depositPercent  Int        @default(30) // نسبة العربون %
+  whatsapp        String
+  status          FarmStatus @default(DRAFT)
+  featured        Boolean    @default(false)
+  ratingAvg       Float      @default(0)
+  ratingCount     Int        @default(0)
+  ownerId         String
+  owner           User       @relation("FarmOwner", fields: [ownerId], references: [id])
+  createdAt       DateTime   @default(now())
+  updatedAt       DateTime   @updatedAt
+
+  photos   FarmPhoto[]
+  bookings Booking[]
+  reviews  Review[]
+  packages Package[]
+
+  @@index([governorate, status])
+  @@index([status, featured])
+}
+
+model FarmPhoto {
+  id     String @id @default(cuid())
+  farmId String
+  farm   Farm   @relation(fields: [farmId], references: [id], onDelete: Cascade)
+  url    String
+  alt    String?
+  order  Int    @default(0)
+}
+
+model AddOn {
+  id          String  @id @default(cuid())
+  name        String  // بوفيه مفتوح، دي جي، زينة بالونات...
+  description String?
+  price       Float   // سعر ثابت (دينار)
+  priceUnit   String  @default("per_booking") // per_booking | per_person | per_hour
+  icon        String  @default("sparkles")
+  active      Boolean @default(true)
+
+  items BookingAddOn[]
+}
+
+model Package {
+  id          String  @id @default(cuid())
+  farmId      String
+  farm        Farm    @relation(fields: [farmId], references: [id], onDelete: Cascade)
+  name        String  // باقة الحفلة العائلية، باقة العرس...
+  description String?
+  price       Float   // سعر نهائي شامل
+  active      Boolean @default(true)
+}
+
+model Booking {
+  id            String        @id @default(cuid())
+  code          String        @unique // رقم الحجز: LM-XXXXXX
+  farmId        String
+  farm          Farm          @relation(fields: [farmId], references: [id])
+  customerId    String?
+  customer      User?         @relation(fields: [customerId], references: [id])
+  customerName  String
+  customerPhone String
+  mode          BookingMode
+  eventType     String?       // عرس، مولود، تخرج، طشة عائلية...
+  guests        Int
+  date          String        // YYYY-MM-DD
+  startTime     String?       // للاستراحة: HH:MM
+  endTime       String?
+  status        BookingStatus @default(PENDING_OWNER)
+  paymentMethod PaymentMethod @default(ON_ARRIVAL)
+  paymentStatus PaymentStatus @default(UNPAID)
+  basePrice     Float
+  addOnsTotal   Float         @default(0)
+  totalPrice    Float
+  depositAmount Float
+  notes         String?
+  createdAt     DateTime      @default(now())
+  updatedAt     DateTime      @updatedAt
+
+  addOns BookingAddOn[]
+
+  @@index([farmId, date, status])
+}
+
+model BookingAddOn {
+  id        String  @id @default(cuid())
+  bookingId String
+  booking   Booking @relation(fields: [bookingId], references: [id], onDelete: Cascade)
+  addOnId   String
+  addOn     AddOn   @relation(fields: [addOnId], references: [id])
+  quantity  Int     @default(1)
+  unitPrice Float
+  lineTotal Float
+}
+
+model Review {
+  id        String   @id @default(cuid())
+  farmId    String
+  farm      Farm     @relation(fields: [farmId], references: [id], onDelete: Cascade)
+  userId    String?
+  user      User?    @relation(fields: [userId], references: [id])
+  author    String
+  rating    Int      // 1..5
+  text      String?
+  createdAt DateTime @default(now())
+
+  @@index([farmId])
+}
