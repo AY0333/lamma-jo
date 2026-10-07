@@ -4,6 +4,7 @@ export const dynamic = "force-dynamic";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Header, Footer } from "@/components/layout";
+import ImageCarousel from "@/components/ImageCarousel";
 import { getFarm, formatJOD, whatsappLink } from "@/lib/data";
 
 export default async function FarmPage({
@@ -31,8 +32,8 @@ export default async function FarmPage({
           → رجوع للمزارع
         </Link>
 
-        <div className="mt-3 flex h-64 items-center justify-center rounded-2xl bg-gradient-to-br from-emerald-100 to-amber-100 text-8xl">
-          {farm.emoji}
+        <div className="mt-3 h-64 overflow-hidden rounded-2xl md:h-80">
+          <ImageCarousel images={farm.images} alt={farm.name} fallbackEmoji={farm.emoji} />
         </div>
 
         <div className="mt-4 flex flex-wrap items-start justify-between gap-3">

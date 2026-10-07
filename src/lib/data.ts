@@ -31,6 +31,9 @@ export interface Farm {
   whatsapp: string;
   featured: boolean;
   emoji: string;
+  images: string[];
+  
+  
 }
 
 export const FARMS: Farm[] = [
@@ -46,6 +49,7 @@ export const FARMS: Farm[] = [
     hasPool: true, hasPlayground: true, hasBBQ: true,
     priceDayUse: 90, priceFullEvent: 350, depositPercent: 30,
     whatsapp: "962790000001", featured: true, emoji: "🌴",
+    images: ["/farms/farm-1-1.jpg", "/farms/farm-1-2.jpg", "/farms/farm-1-3.jpg"],
   },
   {
     id: "farm-2",
@@ -59,6 +63,7 @@ export const FARMS: Farm[] = [
     hasPool: true, hasPlayground: false, hasBBQ: true,
     priceDayUse: 150, priceFullEvent: 600, depositPercent: 30,
     whatsapp: "962790000002", featured: true, emoji: "🌊",
+    images: ["/farms/farm-2-1.jpg", "/farms/farm-2-2.jpg", "/farms/farm-2-3.jpg"],
   },
   {
     id: "farm-3",
@@ -72,6 +77,7 @@ export const FARMS: Farm[] = [
     hasPool: true, hasPlayground: true, hasBBQ: true,
     priceDayUse: 70, priceFullEvent: 280, depositPercent: 30,
     whatsapp: "962790000003", featured: false, emoji: "🌲",
+    images: ["/farms/farm-3-1.jpg", "/farms/farm-3-2.jpg", "/farms/farm-3-3.jpg"],
   },
 ];
 

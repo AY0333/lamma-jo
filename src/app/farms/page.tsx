@@ -3,6 +3,7 @@ export const dynamic = "force-dynamic";
 
 import Link from "next/link";
 import { Header, Footer } from "@/components/layout";
+import ImageCarousel from "@/components/ImageCarousel";
 import { FARMS, GOVERNORATES, formatJOD } from "@/lib/data";
 
 export default async function FarmsPage({
@@ -52,8 +53,8 @@ export default async function FarmsPage({
               href={`/farms/${f.slug}${params.mode ? `?mode=${params.mode}` : ""}`}
               className="overflow-hidden rounded-2xl border border-stone-200 bg-white shadow-sm transition hover:shadow-md"
             >
-              <div className="flex h-44 items-center justify-center bg-gradient-to-br from-emerald-100 to-amber-100 text-7xl">
-                {f.emoji}
+              <div className="h-44">
+                <ImageCarousel images={f.images} alt={f.name} fallbackEmoji={f.emoji} />
               </div>
               <div className="p-4">
                 <p className="text-xs font-bold text-emerald-700">{f.governorate} • {f.area}</p>

@@ -1,0 +1,1642 @@
+▲ Next.js 16.4.0 (Turbopack)
+- Local:         http://localhost:3000
+- Network:       http://192.168.56.1:3000
+- Environments: .env
+✓ Ready in 1073ms
+✓ Running next.config.ts took 57ms
+
+○ Compiling / ...
+ GET / 200 in 2.8s (next.js: 2.1s, application-code: 668ms)
+[browser] A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+https://react.dev/link/hydration-mismatch
+
+  ...
+    <HotReload globalError={[...]} webSocket={WebSocket} staticIndicatorState={{pathname:null, ...}}>
+      <AppDevOverlayErrorBoundary globalError={[...]}>
+        <ReplaySsrOnlyErrors>
+        <DevRootHTTPAccessFallbackBoundary>
+          <HTTPAccessFallbackBoundary notFound={<NotAllowedRootHTTPFallbackError>}>
+            <HTTPAccessFallbackErrorBoundary pathname="/" notFound={<NotAllowedRootHTTPFallbackError>} ...>
+              <RedirectBoundary>
+                <RedirectErrorBoundary router={{...}}>
+                  <Head headRenderTree={{...}}>
+                    <__next_viewport_boundary__>
+                    <MetadataWrapper>
+                      <__next_metadata_boundary__>
+                        <div
+                          hidden={true}
+-                         bis_skin_checked="1"
+                        >
+                  <__next_root_layout_boundary__>
+                    <SegmentViewNode type="layout" pagePath="layout.tsx">
+                      <SegmentTrieNode>
+                      <link>
+                      <script>
+                      <RootLayout>
+                        <html lang="ar" dir="rtl">
+                          <body
+                            className="min-h-screen bg-stone-50 font-sans text-stone-900 antialiased"
+-                           __processed_c3ba53eb-932b-4e77-8bb1-9f3f74c369f3__="true"
+-                           bis_register="W3sibWFzdGVyIjp0cnVlLCJleHRlbnNpb25JZCI6ImVwcGlvY2VtaG1ubGJoanBsY2drb2ZjaWll..."
+                          >
+                            ...
+                              <SegmentViewNode type="page" pagePath="page.tsx">
+                                <SegmentTrieNode>
+                                <Home>
+                                  <Header>
+                                    <header className="sticky top...">
+                                      <div
+                                        className="mx-auto flex max-w-6xl items-center justify-between px-4 py-3"
+-                                       bis_skin_checked="1"
+                                      >
+                                  <main className="mx-auto ma...">
+                                    <section className="py-12 text...">
+                                      <p>
+                                      <h1>
+                                      <p>
+                                      <div
+                                        className="mt-6 flex flex-wrap justify-center gap-3"
+-                                       bis_skin_checked="1"
+                                      >
+                                    <section className="grid gap-4...">
+                                      <LinkComponent>
+                                        <LinkComponent href="/farms?mod..." className="rounded-2x...">
+                                          <a className="rounded-2x..." ref={function} onClick={function onClick} ...>
+                                            <div
+                                              className="text-4xl"
+-                                             bis_skin_checked="1"
+                                            >
++                                             ☀️
+                                            ...
+                                      <LinkComponent>
+                                        <LinkComponent href="/farms?mod..." className="rounded-2x...">
+                                          <a className="rounded-2x..." ref={function} onClick={function onClick} ...>
+                                            <div
+                                              className="text-4xl"
+-                                             bis_skin_checked="1"
+                                            >
++                                             🎉
+                                            ...
+                                    <section className="mt-12">
+                                      <div
+                                        className="flex items-center justify-between"
+-                                       bis_skin_checked="1"
+                                      >
+                                      <div
+                                        className="mt-4 grid gap-4 md:grid-cols-3"
+-                                       bis_skin_checked="1"
+                                      >
+                                        <LinkComponent>
+                                          <LinkComponent href="/farms/al-..." className="overflow-h...">
+                                            <a className="overflow-h..." ref={function} onClick={function onClick} ...>
+                                              <div
+                                                className="flex h-40 items-center justify-center bg-gradient-to-br fro..."
+-                                               bis_skin_checked="1"
+                                              >
++                                               🌴
+                                              <div
+                                                className="p-4"
+-                                               bis_skin_checked="1"
+                                              >
+                                                <p>
+                                                <h3>
+                                                <div
+                                                  className="mt-2 flex items-center justify-between text-sm"
+-                                                 bis_skin_checked="1"
+                                                >
+                                        <LinkComponent>
+                                          <LinkComponent href="/farms/dea..." className="overflow-h...">
+                                            <a className="overflow-h..." ref={function} onClick={function onClick} ...>
+                                              <div
+                                                className="flex h-40 items-center justify-center bg-gradient-to-br fro..."
+-                                               bis_skin_checked="1"
+                                              >
++                                               🌊
+                                              <div
+                                                className="p-4"
+-                                               bis_skin_checked="1"
+                                              >
+                                                <p>
+                                                <h3>
+                                                <div
+                                                  className="mt-2 flex items-center justify-between text-sm"
+-                                                 bis_skin_checked="1"
+                                                >
+                                    <section className="mt-12">
+                                      <h2>
+                                      <p>
+                                      <div
+                                        className="mt-4 grid gap-4 sm:grid-cols-2 md:grid-cols-4"
+-                                       bis_skin_checked="1"
+                                      >
+                                        <div
+                                          className="rounded-2xl border border-stone-200 bg-white p-5 text-center shad..."
+-                                         bis_skin_checked="1"
+                                        >
+                                          <div
+                                            className="text-3xl"
+-                                           bis_skin_checked="1"
+                                          >
++                                           🍖
+                                          ...
+                                        <div
+                                          className="rounded-2xl border border-stone-200 bg-white p-5 text-center shad..."
+-                                         bis_skin_checked="1"
+                                        >
+                                          <div
+                                            className="text-3xl"
+-                                           bis_skin_checked="1"
+                                          >
++                                           🔊
+                                          ...
+                                        <div
+                                          className="rounded-2xl border border-stone-200 bg-white p-5 text-center shad..."
+-                                         bis_skin_checked="1"
+                                        >
+                                          <div
+                                            className="text-3xl"
+-                                           bis_skin_checked="1"
+                                          >
++                                           🎈
+                                          ...
+                                        <div
+                                          className="rounded-2xl border border-stone-200 bg-white p-5 text-center shad..."
+-                                         bis_skin_checked="1"
+                                        >
+                                          <div
+                                            className="text-3xl"
+-                                           bis_skin_checked="1"
+                                          >
++                                           📸
+                                          ...
+                                    <section className="mt-12 roun...">
+                                      <h2>
+                                      <div
+                                        className="mt-4 grid gap-4 text-emerald-50 md:grid-cols-3"
+-                                       bis_skin_checked="1"
+                                      >
+                                        <div
+-                                         bis_skin_checked="1"
+                                        >
+                                        <div
+-                                         bis_skin_checked="1"
+                                        >
+                                        <div
+-                                         bis_skin_checked="1"
+                                        >
+                                  <Footer>
+                                    <footer className="mt-16 bord...">
+                                      <div
+                                        className="mx-auto flex max-w-6xl flex-col gap-2 px-4 py-8 text-sm text-stone-500"
+-                                       bis_skin_checked="1"
+                                      >
+                  ...
+ 
+ GET /farms?mode=FULL_EVENT 200 in 312ms (next.js: 80ms, application-code: 232ms)
+ GET /farms/al-waha-alkhadra?mode=FULL_EVENT 200 in 2.8s (next.js: 2.7s, application-code: 141ms)
+ GET /farms/al-waha-alkhadra?mode=FULL_EVENT 200 in 166ms (next.js: 23ms, application-code: 144ms)
+○ Compiling /book ...
+ GET /book?farm=al-waha-alkhadra&mode=FULL_EVENT 200 in 377ms (next.js: 247ms, application-code: 130ms)
+ GET /farms 200 in 140ms (next.js: 11ms, application-code: 130ms)
+ GET /farms?governorate=%D8%A7%D9%84%D8%A8%D9%84%D9%82%D8%A7%D8%A1 200 in 139ms (next.js: 4ms, application-code: 135ms)
+ GET /farms?governorate=%D9%85%D8%A7%D8%AF%D8%A8%D8%A7 200 in 121ms (next.js: 8ms, application-code: 113ms)
+ GET /farms?governorate=%D8%B9%D8%AC%D9%84%D9%88%D9%86 200 in 104ms (next.js: 7ms, application-code: 96ms)
+ GET /farms 200 in 205ms (next.js: 7ms, application-code: 198ms)
+ GET /farms?governorate=%D8%A7%D9%84%D8%A8%D9%84%D9%82%D8%A7%D8%A1 200 in 107ms (next.js: 6ms, application-code: 101ms)
+ GET /farms?governorate=%D9%85%D8%A7%D8%AF%D8%A8%D8%A7 200 in 110ms (next.js: 7ms, application-code: 102ms)
+ GET /farms?governorate=%D8%B9%D8%AC%D9%84%D9%88%D9%86 200 in 84ms (next.js: 6ms, application-code: 77ms)
+ GET /farms 200 in 104ms (next.js: 6ms, application-code: 98ms)
+✓ Compiled in 20.6s
+✓ Compiled in 1722ms
+ GET /farms 200 in 257ms (next.js: 5ms, application-code: 252ms)
+ GET /farms 200 in 234ms (next.js: 7ms, application-code: 227ms)
+✓ Compiled in 79ms
+○ Compiling /farms ...
+✓ Compiled in 4.7s
+ GET /farms 200 in 315ms (next.js: 97ms, application-code: 218ms)
+ GET /farms 200 in 234ms (next.js: 10ms, application-code: 224ms)
+✓ Compiled in 995ms
+○ Compiling /farms ...
+✓ Compiled in 4s
+⨯ ReferenceError: images is not defined
+    at Module.eval (src\lib\data.ts:48:60)
+    at module evaluation (src\app\farms\page.tsx:6:1)
+    at module evaluation (D:\OllamaModels\Cline\lamma-jo\.next\dev\server\chunks\ssr\[root-of-the-server]__20angss4qelu2._.js:598:47)
+  46 |     hasPool: true, hasPlayground: true, hasBBQ: true,
+  47 |     priceDayUse: 90, priceFullEvent: 350, depositPercent: 30,
+> 48 |     whatsapp: "962790000001", featured: true, emoji: "🌴", images 
+     |                                                          ^
+  49 |   },
+  50 |   {
+  51 |     id: "farm-2",
+⨯ ReferenceError: images is not defined
+    at Module.eval (src\lib\data.ts:48:60)
+    at module evaluation (src\app\farms\page.tsx:6:1)
+    at module evaluation (D:\OllamaModels\Cline\lamma-jo\.next\dev\server\chunks\ssr\[root-of-the-server]__20angss4qelu2._.js:598:47)
+  46 |     hasPool: true, hasPlayground: true, hasBBQ: true,
+  47 |     priceDayUse: 90, priceFullEvent: 350, depositPercent: 30,
+> 48 |     whatsapp: "962790000001", featured: true, emoji: "🌴", images 
+     |                                                          ^
+  49 |   },
+  50 |   {
+  51 |     id: "farm-2", {
+  page: '/farms'
+}
+✓ Compiled in 163ms
+○ Compiling /_error ...
+ GET /farms 200 in 136ms (next.js: 15ms, application-code: 122ms)
+✓ Compiled in 17.8s
+⨯ ReferenceError: im is not defined
+    at Module.eval (src\lib\data.ts:49:5)
+    at module evaluation (src\app\farms\page.tsx:6:1)
+    at module evaluation (D:\OllamaModels\Cline\lamma-jo\.next\dev\server\chunks\ssr\[root-of-the-server]__20angss4qelu2._.js:598:47)
+  47 |     priceDayUse: 90, priceFullEvent: 350, depositPercent: 30,
+  48 |     whatsapp: "962790000001", featured: true, emoji: "🌴",
+> 49 |     im
+     |     ^
+  50 |   },
+  51 |   {
+  52 |     id: "farm-2",
+⨯ ReferenceError: im is not defined
+    at Module.eval (src\lib\data.ts:49:5)
+    at module evaluation (src\app\farms\page.tsx:6:1)
+    at module evaluation (D:\OllamaModels\Cline\lamma-jo\.next\dev\server\chunks\ssr\[root-of-the-server]__20angss4qelu2._.js:598:47)
+  47 |     priceDayUse: 90, priceFullEvent: 350, depositPercent: 30,
+  48 |     whatsapp: "962790000001", featured: true, emoji: "🌴",
+> 49 |     im
+     |     ^
+  50 |   },
+  51 |   {
+  52 |     id: "farm-2", {
+  page: '/farms'
+}
+✓ Compiled in 13.6s
+✓ Compiled in 209ms
+ GET /farms 500 in 13.1s (next.js: 9.8s, application-code: 3.3s)
+ GET /farms 500 in 40s (next.js: 40s, application-code: 128ms)
+✓ Compiled in 4ms
+ GET /farms 200 in 599ms (next.js: 72ms, application-code: 526ms)
+ GET /farms 200 in 353ms (next.js: 8ms, application-code: 345ms)
+ GET /farms 200 in 880ms (next.js: 7ms, application-code: 873ms)
+ GET /farms 200 in 679ms (next.js: 6ms, application-code: 673ms)
+ GET /farms 200 in 798ms (next.js: 9ms, application-code: 789ms)
+✓ Compiled in 456ms
+✓ Compiled in 422ms
+○ Compiling /farms ...
+ GET /farms 200 in 213ms (next.js: 19ms, application-code: 193ms)
+✓ Compiled in 54ms
+ GET /farms 200 in 142ms (next.js: 35ms, application-code: 107ms)
+✓ Compiled in 54ms
+ GET /farms 200 in 154ms (next.js: 5ms, application-code: 149ms)
+[browser] A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+https://react.dev/link/hydration-mismatch
+
+  ...
+    <HotReload globalError={[...]} webSocket={WebSocket} staticIndicatorState={{pathname:null, ...}}>
+      <AppDevOverlayErrorBoundary globalError={[...]}>
+        <ReplaySsrOnlyErrors>
+        <DevRootHTTPAccessFallbackBoundary>
+          <HTTPAccessFallbackBoundary notFound={<NotAllowedRootHTTPFallbackError>}>
+            <HTTPAccessFallbackErrorBoundary pathname="/farms" notFound={<NotAllowedRootHTTPFallbackError>} ...>
+              <RedirectBoundary>
+                <RedirectErrorBoundary router={{...}}>
+                  <Head headRenderTree={{...}}>
+                    <__next_viewport_boundary__>
+                    <MetadataWrapper>
+                      <__next_metadata_boundary__>
+                        <div
+                          hidden={true}
+-                         bis_skin_checked="1"
+                        >
+                  <__next_root_layout_boundary__>
+                    <SegmentViewNode type="layout" pagePath="layout.tsx">
+                      <SegmentTrieNode>
+                      <link>
+                      <script>
+                      <RootLayout>
+                        <html lang="ar" dir="rtl">
+                          <body
+                            className="min-h-screen bg-stone-50 font-sans text-stone-900 antialiased"
+-                           __processed_a6696eff-b87f-4e94-8a76-79ba62f8f943__="true"
+-                           bis_register="W3sibWFzdGVyIjp0cnVlLCJleHRlbnNpb25JZCI6ImVwcGlvY2VtaG1ubGJoanBsY2drb2ZjaWll..."
+                          >
+                            ...
+                              <SegmentViewNode type="page" pagePath="farms/page...">
+                                <SegmentTrieNode>
+                                <FarmsPage>
+                                  <Header>
+                                    <header className="sticky top...">
+                                      <div
+                                        className="mx-auto flex max-w-6xl items-center justify-between px-4 py-3"
+-                                       bis_skin_checked="1"
+                                      >
+                                  <main className="mx-auto ma...">
+                                    <h1>
+                                    <p>
+                                    <div
+                                      className="mt-4 flex flex-wrap gap-2"
+-                                     bis_skin_checked="1"
+                                    >
+                                    <div
+                                      className="mt-6 grid gap-4 md:grid-cols-3"
+-                                     bis_skin_checked="1"
+                                    >
+                                      <LinkComponent>
+                                        <LinkComponent href="/farms/al-..." className="overflow-h...">
+                                          <a className="overflow-h..." ref={function} onClick={function onClick} ...>
+                                            <div
+                                              className="flex h-44 items-center justify-center bg-gradient-to-br from-..."
+-                                             bis_skin_checked="1"
+                                            >
++                                             waha.
+                                            <div
+                                              className="p-4"
+-                                             bis_skin_checked="1"
+                                            >
+                                              <p>
+                                              <h3>
+                                              <p>
+                                              <div
+                                                className="mt-2 flex flex-wrap gap-2 text-xs"
+-                                               bis_skin_checked="1"
+                                              >
+                                              <div
+                                                className="mt-3 flex items-center justify-between border-t border-ston..."
+-                                               bis_skin_checked="1"
+                                              >
+                                      <LinkComponent>
+                                        <LinkComponent href="/farms/dea..." className="overflow-h...">
+                                          <a className="overflow-h..." ref={function} onClick={function onClick} ...>
+                                            <div
+                                              className="flex h-44 items-center justify-center bg-gradient-to-br from-..."
+-                                             bis_skin_checked="1"
+                                            >
++                                             🌊
+                                            <div
+                                              className="p-4"
+-                                             bis_skin_checked="1"
+                                            >
+                                              <p>
+                                              <h3>
+                                              <p>
+                                              <div
+                                                className="mt-2 flex flex-wrap gap-2 text-xs"
+-                                               bis_skin_checked="1"
+                                              >
+                                              <div
+                                                className="mt-3 flex items-center justify-between border-t border-ston..."
+-                                               bis_skin_checked="1"
+                                              >
+                                      <LinkComponent>
+                                        <LinkComponent href="/farms/ajl..." className="overflow-h...">
+                                          <a className="overflow-h..." ref={function} onClick={function onClick} ...>
+                                            <div
+                                              className="flex h-44 items-center justify-center bg-gradient-to-br from-..."
+-                                             bis_skin_checked="1"
+                                            >
++                                             🌲
+                                            <div
+                                              className="p-4"
+-                                             bis_skin_checked="1"
+                                            >
+                                              <p>
+                                              <h3>
+                                              <p>
+                                              <div
+                                                className="mt-2 flex flex-wrap gap-2 text-xs"
+-                                               bis_skin_checked="1"
+                                              >
+                                              <div
+                                                className="mt-3 flex items-center justify-between border-t border-ston..."
+-                                               bis_skin_checked="1"
+                                              >
+                                  <Footer>
+                                    <footer className="mt-16 bord...">
+                                      <div
+                                        className="mx-auto flex max-w-6xl flex-col gap-2 px-4 py-8 text-sm text-stone-500"
+-                                       bis_skin_checked="1"
+                                      >
+                  ...
+ 
+[browser] ./src/lib/data.ts:53:3
+Error: Expression expected
+  51 |   "/farms/waha-3.jpg",
+  52 |     
+> 53 |   },
+     |   ^
+  54 |   {
+  55 |     id: "farm-2",
+  56 |     name: "شاليه البحر الميت فيو",
+
+Parsing ecmascript source code failed
+
+Import trace:
+  Server Component:
+    ./src/lib/data.ts
+    ./src/app/page.tsx 
+[browser] ./src/lib/data.ts:54:3
+Error: Expression expected
+  52 |   "/farms/waha-3.jpg",
+  53 |     
+> 54 |   },
+     |   ^
+  55 |   {
+  56 |     id: "farm-2",
+  57 |     name: "شاليه البحر الميت فيو",
+
+Parsing ecmascript source code failed
+
+Import trace:
+  Server Component:
+    ./src/lib/data.ts
+    ./src/app/page.tsx 
+[browser] ./src/lib/data.ts:54:3
+Error: Expression expected
+  52 |   "/farms/waha-3.jpg",
+  53 |     
+> 54 |   },
+     |   ^
+  55 |   {
+  56 |     id: "farm-2",
+  57 |     name: "شاليه البحر الميت فيو",
+
+Parsing ecmascript source code failed
+
+Import trace:
+  Server Component:
+    ./src/lib/data.ts
+    ./src/app/page.tsx 
+[browser] ./src/lib/data.ts:54:3
+Error: Expression expected
+  52 |   "/farms/waha-3.jpg",
+  53 |     
+> 54 |   },
+     |   ^
+  55 |   {
+  56 |     id: "farm-2",
+  57 |     name: "شاليه البحر الميت فيو",
+
+Parsing ecmascript source code failed
+
+Import trace:
+  Server Component:
+    ./src/lib/data.ts
+    ./src/app/page.tsx 
+[browser] ./src/lib/data.ts:54:3
+Error: Expression expected
+  52 |   "/farms/waha-3.jpg",
+  53 |     
+> 54 |   },
+     |   ^
+  55 |   {
+  56 |     id: "farm-2",
+  57 |     name: "شاليه البحر الميت فيو",
+
+Parsing ecmascript source code failed
+
+Import trace:
+  Server Component:
+    ./src/lib/data.ts
+    ./src/app/page.tsx 
+[browser] ./src/lib/data.ts:54:3
+Error: Expression expected
+  52 |   "/farms/waha-3.jpg",
+  53 |     
+> 54 |   },
+     |   ^
+  55 | ],
+  56 |   {
+  57 |     id: "farm-2",
+
+Parsing ecmascript source code failed
+
+Import trace:
+  Server Component:
+    ./src/lib/data.ts
+    ./src/app/page.tsx 
+[browser] ./src/lib/data.ts:54:3
+Error: Expression expected
+  52 |   "/farms/waha-3.jpg",
+  53 |     
+> 54 |   },
+     |   ^
+  55 |
+  56 |   {
+  57 |     id: "farm-2",
+
+Parsing ecmascript source code failed
+
+Import trace:
+  Server Component:
+    ./src/lib/data.ts
+    ./src/app/page.tsx 
+[browser] ./src/lib/data.ts:56:3
+Error: Unexpected token `{`. Expected identifier, string literal, numeric literal or [ for the computed key
+  54 | ],
+  55 |
+> 56 |   {
+     |   ^
+  57 |     id: "farm-2",
+  58 |     name: "شاليه البحر الميت فيو",
+  59 |     slug: "deadsea-view-chalet",
+
+Parsing ecmascript source code failed
+
+Import trace:
+  Server Component:
+    ./src/lib/data.ts
+    ./src/app/page.tsx 
+[browser] ./src/lib/data.ts:59:3
+Error: Expression expected
+  57 | ],
+  58 | },
+> 59 |   },
+     |   ^
+  60 |   {
+  61 |     id: "farm-2",
+  62 |     name: "شاليه البحر الميت فيو",
+
+Parsing ecmascript source code failed
+
+Import trace:
+  Server Component:
+    ./src/lib/data.ts
+    ./src/app/page.tsx 
+ GET / 200 in 283ms (next.js: 21ms, application-code: 263ms)
+ GET /farms 200 in 214ms (next.js: 12ms, application-code: 202ms)
+ GET /book 200 in 162ms (next.js: 37ms, application-code: 125ms)
+ GET /farms 200 in 106ms (next.js: 8ms, application-code: 98ms)
+ GET / 200 in 105ms (next.js: 7ms, application-code: 99ms)
+✓ Compiled in 5.1s
+ GET / 200 in 282ms (next.js: 234ms, application-code: 48ms)
+✓ Compiled in 617ms
+ GET / 200 in 192ms (next.js: 6ms, application-code: 185ms)
+ GET / 200 in 472ms (next.js: 19ms, application-code: 453ms)
+✓ Compiled in 496ms
+[browser] A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+https://react.dev/link/hydration-mismatch
+
+  ...
+    <HotReload globalError={[...]} webSocket={WebSocket} staticIndicatorState={{pathname:null, ...}}>
+      <AppDevOverlayErrorBoundary globalError={[...]}>
+        <ReplaySsrOnlyErrors>
+        <DevRootHTTPAccessFallbackBoundary>
+          <HTTPAccessFallbackBoundary notFound={<NotAllowedRootHTTPFallbackError>}>
+            <HTTPAccessFallbackErrorBoundary pathname="/" notFound={<NotAllowedRootHTTPFallbackError>} ...>
+              <RedirectBoundary>
+                <RedirectErrorBoundary router={{...}}>
+                  <Head headRenderTree={{...}}>
+                    <__next_viewport_boundary__>
+                    <MetadataWrapper>
+                      <__next_metadata_boundary__>
+                        <div
+                          hidden={true}
+-                         bis_skin_checked="1"
+                        >
+                  <__next_root_layout_boundary__>
+                    <SegmentViewNode type="layout" pagePath="layout.tsx">
+                      <SegmentTrieNode>
+                      <link>
+                      <script>
+                      <RootLayout>
+                        <html lang="ar" dir="rtl">
+                          <body
+                            className="min-h-screen bg-stone-50 font-sans text-stone-900 antialiased"
+-                           __processed_3d56f60b-8318-4b0c-89cf-1bd30f669a6a__="true"
+-                           bis_register="W3sibWFzdGVyIjp0cnVlLCJleHRlbnNpb25JZCI6ImVwcGlvY2VtaG1ubGJoanBsY2drb2ZjaWll..."
+                          >
+                            ...
+                              <SegmentViewNode type="page" pagePath="page.tsx">
+                                <SegmentTrieNode>
+                                <Home>
+                                  <Header>
+                                    <header className="sticky top...">
+                                      <div
+                                        className="mx-auto flex max-w-6xl items-center justify-between px-4 py-3"
+-                                       bis_skin_checked="1"
+                                      >
+                                  <main className="mx-auto ma...">
+                                    <section className="py-12 text...">
+                                      <p>
+                                      <h1>
+                                      <p>
+                                      <div
+                                        className="mt-6 flex flex-wrap justify-center gap-3"
+-                                       bis_skin_checked="1"
+                                      >
+                                    <section className="grid gap-4...">
+                                      <LinkComponent>
+                                        <LinkComponent href="/farms?mod..." className="rounded-2x...">
+                                          <a className="rounded-2x..." ref={function} onClick={function onClick} ...>
+                                            <div
+                                              className="text-4xl"
+-                                             bis_skin_checked="1"
+                                            >
++                                             ☀️
+                                            ...
+                                      <LinkComponent>
+                                        <LinkComponent href="/farms?mod..." className="rounded-2x...">
+                                          <a className="rounded-2x..." ref={function} onClick={function onClick} ...>
+                                            <div
+                                              className="text-4xl"
+-                                             bis_skin_checked="1"
+                                            >
++                                             🎉
+                                            ...
+                                    <section className="mt-12">
+                                      <div
+                                        className="flex items-center justify-between"
+-                                       bis_skin_checked="1"
+                                      >
+                                      <div
+                                        className="mt-4 grid gap-4 md:grid-cols-3"
+-                                       bis_skin_checked="1"
+                                      >
+                                        <LinkComponent>
+                                          <LinkComponent href="/farms/al-..." className="overflow-h...">
+                                            <a className="overflow-h..." ref={function} onClick={function onClick} ...>
+                                              <div
+                                                className="flex h-40 items-center justify-center bg-gradient-to-br fro..."
+-                                               bis_skin_checked="1"
+                                              >
++                                               🌴
+                                              <div
+                                                className="p-4"
+-                                               bis_skin_checked="1"
+                                              >
+                                                <p>
+                                                <h3>
+                                                <div
+                                                  className="mt-2 flex items-center justify-between text-sm"
+-                                                 bis_skin_checked="1"
+                                                >
+                                        <LinkComponent>
+                                          <LinkComponent href="/farms/dea..." className="overflow-h...">
+                                            <a className="overflow-h..." ref={function} onClick={function onClick} ...>
+                                              <div
+                                                className="flex h-40 items-center justify-center bg-gradient-to-br fro..."
+-                                               bis_skin_checked="1"
+                                              >
++                                               🌊
+                                              <div
+                                                className="p-4"
+-                                               bis_skin_checked="1"
+                                              >
+                                                <p>
+                                                <h3>
+                                                <div
+                                                  className="mt-2 flex items-center justify-between text-sm"
+-                                                 bis_skin_checked="1"
+                                                >
+                                    <section className="mt-12">
+                                      <h2>
+                                      <p>
+                                      <div
+                                        className="mt-4 grid gap-4 sm:grid-cols-2 md:grid-cols-4"
+-                                       bis_skin_checked="1"
+                                      >
+                                        <div
+                                          className="rounded-2xl border border-stone-200 bg-white p-5 text-center shad..."
+-                                         bis_skin_checked="1"
+                                        >
+                                          <div
+                                            className="text-3xl"
+-                                           bis_skin_checked="1"
+                                          >
++                                           🍖
+                                          ...
+                                        <div
+                                          className="rounded-2xl border border-stone-200 bg-white p-5 text-center shad..."
+-                                         bis_skin_checked="1"
+                                        >
+                                          <div
+                                            className="text-3xl"
+-                                           bis_skin_checked="1"
+                                          >
++                                           🔊
+                                          ...
+                                        <div
+                                          className="rounded-2xl border border-stone-200 bg-white p-5 text-center shad..."
+-                                         bis_skin_checked="1"
+                                        >
+                                          <div
+                                            className="text-3xl"
+-                                           bis_skin_checked="1"
+                                          >
++                                           🎈
+                                          ...
+                                        <div
+                                          className="rounded-2xl border border-stone-200 bg-white p-5 text-center shad..."
+-                                         bis_skin_checked="1"
+                                        >
+                                          <div
+                                            className="text-3xl"
+-                                           bis_skin_checked="1"
+                                          >
++                                           📸
+                                          ...
+                                    <section className="mt-12 roun...">
+                                      <h2>
+                                      <div
+                                        className="mt-4 grid gap-4 text-emerald-50 md:grid-cols-3"
+-                                       bis_skin_checked="1"
+                                      >
+                                        <div
+-                                         bis_skin_checked="1"
+                                        >
+                                        <div
+-                                         bis_skin_checked="1"
+                                        >
+                                        <div
+-                                         bis_skin_checked="1"
+                                        >
+                                  <Footer>
+                                    <footer className="mt-16 bord...">
+                                      <div
+                                        className="mx-auto flex max-w-6xl flex-col gap-2 px-4 py-8 text-sm text-stone-500"
+-                                       bis_skin_checked="1"
+                                      >
+                  ...
+ 
+ GET / 200 in 123ms (next.js: 4ms, application-code: 119ms)
+ GET / 200 in 70ms (next.js: 2ms, application-code: 68ms)
+[browser] A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+https://react.dev/link/hydration-mismatch
+
+  ...
+    <HotReload globalError={[...]} webSocket={WebSocket} staticIndicatorState={{pathname:null, ...}}>
+      <AppDevOverlayErrorBoundary globalError={[...]}>
+        <ReplaySsrOnlyErrors>
+        <DevRootHTTPAccessFallbackBoundary>
+          <HTTPAccessFallbackBoundary notFound={<NotAllowedRootHTTPFallbackError>}>
+            <HTTPAccessFallbackErrorBoundary pathname="/" notFound={<NotAllowedRootHTTPFallbackError>} ...>
+              <RedirectBoundary>
+                <RedirectErrorBoundary router={{...}}>
+                  <Head headRenderTree={{...}}>
+                    <__next_viewport_boundary__>
+                    <MetadataWrapper>
+                      <__next_metadata_boundary__>
+                        <div
+                          hidden={true}
+-                         bis_skin_checked="1"
+                        >
+                  <__next_root_layout_boundary__>
+                    <SegmentViewNode type="layout" pagePath="layout.tsx">
+                      <SegmentTrieNode>
+                      <link>
+                      <script>
+                      <RootLayout>
+                        <html lang="ar" dir="rtl">
+                          <body
+                            className="min-h-screen bg-stone-50 font-sans text-stone-900 antialiased"
+-                           __processed_0e93ab9a-0dfe-4fa3-bb15-0c2194f3c652__="true"
+-                           bis_register="W3sibWFzdGVyIjp0cnVlLCJleHRlbnNpb25JZCI6ImVwcGlvY2VtaG1ubGJoanBsY2drb2ZjaWll..."
+                          >
+                            ...
+                              <SegmentViewNode type="page" pagePath="page.tsx">
+                                <SegmentTrieNode>
+                                <Home>
+                                  <Header>
+                                    <header className="sticky top...">
+                                      <div
+                                        className="mx-auto flex max-w-6xl items-center justify-between px-4 py-3"
+-                                       bis_skin_checked="1"
+                                      >
+                                  <main className="mx-auto ma...">
+                                    <section className="py-12 text...">
+                                      <p>
+                                      <h1>
+                                      <p>
+                                      <div
+                                        className="mt-6 flex flex-wrap justify-center gap-3"
+-                                       bis_skin_checked="1"
+                                      >
+                                    <section className="grid gap-4...">
+                                      <LinkComponent>
+                                        <LinkComponent href="/farms?mod..." className="rounded-2x...">
+                                          <a className="rounded-2x..." ref={function} onClick={function onClick} ...>
+                                            <div
+                                              className="text-4xl"
+-                                             bis_skin_checked="1"
+                                            >
++                                             ☀️
+                                            ...
+                                      <LinkComponent>
+                                        <LinkComponent href="/farms?mod..." className="rounded-2x...">
+                                          <a className="rounded-2x..." ref={function} onClick={function onClick} ...>
+                                            <div
+                                              className="text-4xl"
+-                                             bis_skin_checked="1"
+                                            >
++                                             🎉
+                                            ...
+                                    <section className="mt-12">
+                                      <div
+                                        className="flex items-center justify-between"
+-                                       bis_skin_checked="1"
+                                      >
+                                      <div
+                                        className="mt-4 grid gap-4 md:grid-cols-3"
+-                                       bis_skin_checked="1"
+                                      >
+                                        <LinkComponent>
+                                          <LinkComponent href="/farms/al-..." className="overflow-h...">
+                                            <a className="overflow-h..." ref={function} onClick={function onClick} ...>
+                                              <div
+                                                className="flex h-40 items-center justify-center bg-gradient-to-br fro..."
+-                                               bis_skin_checked="1"
+                                              >
++                                               🌴
+                                              <div
+                                                className="p-4"
+-                                               bis_skin_checked="1"
+                                              >
+                                                <p>
+                                                <h3>
+                                                <div
+                                                  className="mt-2 flex items-center justify-between text-sm"
+-                                                 bis_skin_checked="1"
+                                                >
+                                        <LinkComponent>
+                                          <LinkComponent href="/farms/dea..." className="overflow-h...">
+                                            <a className="overflow-h..." ref={function} onClick={function onClick} ...>
+                                              <div
+                                                className="flex h-40 items-center justify-center bg-gradient-to-br fro..."
+-                                               bis_skin_checked="1"
+                                              >
++                                               🌊
+                                              <div
+                                                className="p-4"
+-                                               bis_skin_checked="1"
+                                              >
+                                                <p>
+                                                <h3>
+                                                <div
+                                                  className="mt-2 flex items-center justify-between text-sm"
+-                                                 bis_skin_checked="1"
+                                                >
+                                    <section className="mt-12">
+                                      <h2>
+                                      <p>
+                                      <div
+                                        className="mt-4 grid gap-4 sm:grid-cols-2 md:grid-cols-4"
+-                                       bis_skin_checked="1"
+                                      >
+                                        <div
+                                          className="rounded-2xl border border-stone-200 bg-white p-5 text-center shad..."
+-                                         bis_skin_checked="1"
+                                        >
+                                          <div
+                                            className="text-3xl"
+-                                           bis_skin_checked="1"
+                                          >
++                                           🍖
+                                          ...
+                                        <div
+                                          className="rounded-2xl border border-stone-200 bg-white p-5 text-center shad..."
+-                                         bis_skin_checked="1"
+                                        >
+                                          <div
+                                            className="text-3xl"
+-                                           bis_skin_checked="1"
+                                          >
++                                           🔊
+                                          ...
+                                        <div
+                                          className="rounded-2xl border border-stone-200 bg-white p-5 text-center shad..."
+-                                         bis_skin_checked="1"
+                                        >
+                                          <div
+                                            className="text-3xl"
+-                                           bis_skin_checked="1"
+                                          >
++                                           🎈
+                                          ...
+                                        <div
+                                          className="rounded-2xl border border-stone-200 bg-white p-5 text-center shad..."
+-                                         bis_skin_checked="1"
+                                        >
+                                          <div
+                                            className="text-3xl"
+-                                           bis_skin_checked="1"
+                                          >
++                                           📸
+                                          ...
+                                    <section className="mt-12 roun...">
+                                      <h2>
+                                      <div
+                                        className="mt-4 grid gap-4 text-emerald-50 md:grid-cols-3"
+-                                       bis_skin_checked="1"
+                                      >
+                                        <div
+-                                         bis_skin_checked="1"
+                                        >
+                                        <div
+-                                         bis_skin_checked="1"
+                                        >
+                                        <div
+-                                         bis_skin_checked="1"
+                                        >
+                                  <Footer>
+                                    <footer className="mt-16 bord...">
+                                      <div
+                                        className="mx-auto flex max-w-6xl flex-col gap-2 px-4 py-8 text-sm text-stone-500"
+-                                       bis_skin_checked="1"
+                                      >
+                  ...
+ 
+ GET /farms 200 in 74ms (next.js: 28ms, application-code: 46ms)
+ GET /book 200 in 107ms (next.js: 23ms, application-code: 84ms)
+✓ Compiled in 4s
+✓ Compiled in 1616ms
+ GET /book 200 in 57ms (next.js: 5ms, application-code: 52ms)
+✓ Compiled in 6.9s
+ GET /book 200 in 40ms (next.js: 13ms, application-code: 27ms)
+✓ Compiled in 639ms
+ GET /book 200 in 33ms (next.js: 3ms, application-code: 30ms)
+ GET /book 200 in 503ms (next.js: 3ms, application-code: 500ms)
+[browser] A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+https://react.dev/link/hydration-mismatch
+
+  ...
+    <HotReload globalError={[...]} webSocket={WebSocket} staticIndicatorState={{pathname:null, ...}}>
+      <AppDevOverlayErrorBoundary globalError={[...]}>
+        <ReplaySsrOnlyErrors>
+        <DevRootHTTPAccessFallbackBoundary>
+          <HTTPAccessFallbackBoundary notFound={<NotAllowedRootHTTPFallbackError>}>
+            <HTTPAccessFallbackErrorBoundary pathname="/book" notFound={<NotAllowedRootHTTPFallbackError>} ...>
+              <RedirectBoundary>
+                <RedirectErrorBoundary router={{...}}>
+                  <Head headRenderTree={{...}}>
+                    <__next_viewport_boundary__>
+                    <MetadataWrapper>
+                      <__next_metadata_boundary__>
+                        <div
+                          hidden={true}
+-                         bis_skin_checked="1"
+                        >
+                  <__next_root_layout_boundary__>
+                    <SegmentViewNode type="layout" pagePath="layout.tsx">
+                      <SegmentTrieNode>
+                      <link>
+                      <script>
+                      <RootLayout>
+                        <html lang="ar" dir="rtl">
+                          <body
+                            className="min-h-screen bg-stone-50 font-sans text-stone-900 antialiased"
+-                           __processed_f9d09fb5-033c-428e-bb7c-98e395193982__="true"
+-                           bis_register="W3sibWFzdGVyIjp0cnVlLCJleHRlbnNpb25JZCI6ImVwcGlvY2VtaG1ubGJoanBsY2drb2ZjaWll..."
+                          >
+                            ...
+                              <SegmentViewNode type="page" pagePath="book/page.tsx">
+                                <SegmentTrieNode>
+                                <BookPage>
+                                  <Header>
+                                    <header className="sticky top...">
+                                      <div
+                                        className="mx-auto flex max-w-6xl items-center justify-between px-4 py-3"
+-                                       bis_skin_checked="1"
+                                      >
+                                  <main>
+                                  <Footer>
+                                    <footer className="mt-16 bord...">
+                                      <div
+                                        className="mx-auto flex max-w-6xl flex-col gap-2 px-4 py-8 text-sm text-stone-500"
+-                                       bis_skin_checked="1"
+                                      >
+                  ...
+ 
+[browser] A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+https://react.dev/link/hydration-mismatch
+
+  ...
+    <LoadingBoundary name="book/" loading={null}>
+      <HTTPAccessFallbackBoundary notFound={undefined} forbidden={undefined} unauthorized={undefined}>
+        <RedirectBoundary>
+          <RedirectErrorBoundary router={{...}}>
+            <InnerLayoutRouter url="/book" tree={[...]} params={{}} renderTree={{...}} segmentPath={[...]} ...>
+              <SegmentViewNode type="page" pagePath="book/page.tsx">
+                <SegmentTrieNode>
+                <BookPage>
+                  <header>
+                  <main className="mx-auto ma...">
+                    <h1>
+                    <Suspense fallback={{...}}>
+                      <BookForm>
+                        <BookFields mode="FULL_EVENT" setMode={function bound dispatchSetState} farmId="al-waha-al..." ...>
+                          <form onSubmit={function submit} className="mt-6 space...">
+                            <div
+                              className="grid grid-cols-2 gap-3"
+-                             bis_skin_checked="1"
+                            >
+                            <div
+-                             bis_skin_checked="1"
+                            >
+                            <div
+-                             bis_skin_checked="1"
+                            >
+                              <label>
+                              <div
+                                className="mt-1 flex flex-wrap gap-2"
+-                               bis_skin_checked="1"
+                              >
+                            <div
+                              className="grid gap-4 md:grid-cols-2"
+-                             bis_skin_checked="1"
+                            >
+                              <div
+-                               bis_skin_checked="1"
+                              >
+                              <div
+-                               bis_skin_checked="1"
+                              >
+                              <div
+-                               bis_skin_checked="1"
+                              >
+                              <div
+-                               bis_skin_checked="1"
+                              >
+                            <div
+-                             bis_skin_checked="1"
+                            >
+                              <label>
+                              <div
+                                className="mt-2 grid gap-2 md:grid-cols-2"
+-                               bis_skin_checked="1"
+                              >
+                                <button type="button" onClick={function onClick} className="rounded-xl...">
+                                  <div
+                                    className="flex items-center justify-between"
+-                                   bis_skin_checked="1"
+                                  >
+                                  ...
+                                <button type="button" onClick={function onClick} className="rounded-xl...">
+                                  <div
+                                    className="flex items-center justify-between"
+-                                   bis_skin_checked="1"
+                                  >
+                                  ...
+                                <button type="button" onClick={function onClick} className="rounded-xl...">
+                                  <div
+                                    className="flex items-center justify-between"
+-                                   bis_skin_checked="1"
+                                  >
+                                  ...
+                                <button type="button" onClick={function onClick} className="rounded-xl...">
+                                  <div
+                                    className="flex items-center justify-between"
+-                                   bis_skin_checked="1"
+                                  >
+                                  ...
+                                <button type="button" onClick={function onClick} className="rounded-xl...">
+                                  <div
+                                    className="flex items-center justify-between"
+-                                   bis_skin_checked="1"
+                                  >
+                                  ...
+                                <button type="button" onClick={function onClick} className="rounded-xl...">
+                                  <div
+                                    className="flex items-center justify-between"
+-                                   bis_skin_checked="1"
+                                  >
+                                  ...
+                            <div
+                              className="rounded-2xl bg-stone-900 p-5 text-white"
+-                             bis_skin_checked="1"
+                            >
+                              <div
+                                className="flex justify-between text-sm text-stone-300"
+-                               bis_skin_checked="1"
+                              >
+                              <div
+                                className="flex justify-between text-sm text-stone-300"
+-                               bis_skin_checked="1"
+                              >
+                              <div
+                                className="mt-2 flex justify-between border-t border-stone-700 pt-2 text-lg font-black"
+-                               bis_skin_checked="1"
+                              >
+                              <div
+                                className="flex justify-between text-sm text-stone-300"
+-                               bis_skin_checked="1"
+                              >
+                            ...
+                  ...
+              ...
+            ...
+ 
+○ Compiling /farms ...
+✓ Compiled in 4.5s
+ GET /farms 200 in 68ms (next.js: 8ms, application-code: 60ms)
+ GET /farms 200 in 70ms (next.js: 6ms, application-code: 63ms)
+ GET /farms/farm-1-1.jpg 404 in 1415ms (next.js: 161ms, application-code: 1254ms)
+ GET /farms/farm-2-1.jpg 404 in 999ms (next.js: 4ms, application-code: 995ms)
+ GET /farms/farm-1-2.jpg 404 in 809ms (next.js: 3ms, application-code: 806ms)
+ GET /farms/farm-1-3.jpg 404 in 632ms (next.js: 3ms, application-code: 629ms)
+ GET /farms/farm-3-1.jpg 404 in 479ms (next.js: 15ms, application-code: 464ms)
+ GET /farms/farm-2-2.jpg 404 in 214ms (next.js: 3ms, application-code: 211ms)
+ GET /farms/farm-2-3.jpg 404 in 324ms (next.js: 3ms, application-code: 321ms)
+ GET /farms/farm-3-2.jpg 404 in 205ms (next.js: 6ms, application-code: 199ms)
+ GET /farms/farm-3-3.jpg 404 in 145ms (next.js: 5ms, application-code: 141ms)
+ GET /farms 200 in 304ms (next.js: 23ms, application-code: 281ms)
+ GET /farms/al-waha-alkhadra 200 in 35ms (next.js: 3ms, application-code: 32ms)
+ GET /farms/farm-1-1.jpg 404 in 164ms (next.js: 4ms, application-code: 159ms)
+ GET /farms/farm-1-2.jpg 404 in 161ms (next.js: 3ms, application-code: 158ms)
+ GET /farms/farm-1-3.jpg 404 in 134ms (next.js: 2ms, application-code: 132ms)
+✓ Compiled in 588ms
+ GET /farms 200 in 48ms (next.js: 5ms, application-code: 42ms)
+ GET /farms/farm-2-1.jpg 404 in 511ms (next.js: 34ms, application-code: 476ms)
+ GET /farms/farm-1-1.jpg 404 in 493ms (next.js: 8ms, application-code: 485ms)
+ GET /farms/farm-3-1.jpg 404 in 455ms (next.js: 4ms, application-code: 451ms)
+ GET /farms/farm-1-3.jpg 404 in 403ms (next.js: 3ms, application-code: 400ms)
+ GET /farms/farm-1-2.jpg 404 in 345ms (next.js: 9ms, application-code: 336ms)
+ GET /farms/farm-2-2.jpg 404 in 272ms (next.js: 4ms, application-code: 268ms)
+ GET /farms/farm-2-3.jpg 404 in 303ms (next.js: 3ms, application-code: 299ms)
+ GET /farms/farm-3-2.jpg 404 in 247ms (next.js: 2ms, application-code: 245ms)
+ GET /farms/farm-3-3.jpg 404 in 143ms (next.js: 2ms, application-code: 141ms)
+ GET / 200 in 98ms (next.js: 4ms, application-code: 94ms)
+ GET /farms 200 in 40ms (next.js: 4ms, application-code: 36ms)
+ GET /farms/farm-1-1.jpg 404 in 521ms (next.js: 15ms, application-code: 506ms)
+ GET /farms/farm-2-1.jpg 404 in 495ms (next.js: 5ms, application-code: 490ms)
+ GET /farms/farm-3-1.jpg 404 in 463ms (next.js: 7ms, application-code: 456ms)
+ GET /farms/farm-1-3.jpg 404 in 271ms (next.js: 3ms, application-code: 268ms)
+ GET /farms/farm-2-2.jpg 404 in 351ms (next.js: 3ms, application-code: 348ms)
+ GET /farms/farm-1-2.jpg 404 in 403ms (next.js: 3ms, application-code: 401ms)
+ GET /farms/farm-2-3.jpg 404 in 321ms (next.js: 3ms, application-code: 318ms)
+ GET /farms/farm-3-2.jpg 404 in 268ms (next.js: 2ms, application-code: 265ms)
+ GET /farms/farm-3-3.jpg 404 in 205ms (next.js: 3ms, application-code: 202ms)
+ GET / 200 in 61ms (next.js: 4ms, application-code: 57ms)
+✓ Compiled in 2.5s
+ GET / 200 in 60ms (next.js: 7ms, application-code: 54ms)
+ GET / 200 in 205ms (next.js: 9ms, application-code: 196ms)
+ GET /farms/hero.jpg 404 in 361ms (next.js: 13ms, application-code: 347ms)
+[browser] A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+https://react.dev/link/hydration-mismatch
+
+  ...
+    <HotReload globalError={[...]} webSocket={WebSocket} staticIndicatorState={{pathname:null, ...}}>
+      <AppDevOverlayErrorBoundary globalError={[...]}>
+        <ReplaySsrOnlyErrors>
+        <DevRootHTTPAccessFallbackBoundary>
+          <HTTPAccessFallbackBoundary notFound={<NotAllowedRootHTTPFallbackError>}>
+            <HTTPAccessFallbackErrorBoundary pathname="/" notFound={<NotAllowedRootHTTPFallbackError>} ...>
+              <RedirectBoundary>
+                <RedirectErrorBoundary router={{...}}>
+                  <Head headRenderTree={{...}}>
+                    <__next_viewport_boundary__>
+                    <MetadataWrapper>
+                      <__next_metadata_boundary__>
+                        <div
+                          hidden={true}
+-                         bis_skin_checked="1"
+                        >
+                  <__next_root_layout_boundary__>
+                    <SegmentViewNode type="layout" pagePath="layout.tsx">
+                      <SegmentTrieNode>
+                      <link>
+                      <script>
+                      <RootLayout>
+                        <html lang="ar" dir="rtl">
+                          <body
+                            className="min-h-screen bg-stone-50 font-sans text-stone-900 antialiased"
+-                           __processed_2f3785e3-d23d-4b24-b545-dcb5a86c1169__="true"
+-                           bis_register="W3sibWFzdGVyIjp0cnVlLCJleHRlbnNpb25JZCI6ImVwcGlvY2VtaG1ubGJoanBsY2drb2ZjaWll..."
+                          >
+                            ...
+                              <SegmentViewNode type="page" pagePath="page.tsx">
+                                <SegmentTrieNode>
+                                <Home>
+                                  <Header>
+                                    <header className="sticky top...">
+                                      <div
+                                        className="mx-auto flex max-w-6xl items-center justify-between px-4 py-3"
+-                                       bis_skin_checked="1"
+                                      >
+                                  <section className="relative o..." style={{...}}>
+                                    <div
+                                      className="mx-auto max-w-6xl px-4 py-16 text-center md:py-24"
+-                                     bis_skin_checked="1"
+                                    >
+                                      <p>
+                                      <h1>
+                                      <p>
+                                      <div
+                                        className="mt-6 flex flex-col items-center justify-center gap-3"
+-                                       bis_skin_checked="1"
+                                      >
+                                  <main className="mx-auto ma...">
+                                    <section className="mt-8 grid ...">
+                                      <LinkComponent>
+                                        <LinkComponent href="/farms?mod..." className="rounded-2x...">
+                                          <a className="rounded-2x..." ref={function} onClick={function onClick} ...>
+                                            <div
+                                              className="text-4xl"
+-                                             bis_skin_checked="1"
+                                            >
++                                             ☀️
+                                            ...
+                                      <LinkComponent>
+                                        <LinkComponent href="/farms?mod..." className="rounded-2x...">
+                                          <a className="rounded-2x..." ref={function} onClick={function onClick} ...>
+                                            <div
+                                              className="text-4xl"
+-                                             bis_skin_checked="1"
+                                            >
++                                             🎉
+                                            ...
+                                    <section className="mt-12">
+                                      <div
+                                        className="flex items-center justify-between"
+-                                       bis_skin_checked="1"
+                                      >
+                                      <div
+                                        className="mt-4 grid gap-4 md:grid-cols-3"
+-                                       bis_skin_checked="1"
+                                      >
+                                        <LinkComponent>
+                                          <LinkComponent href="/farms/al-..." className="overflow-h...">
+                                            <a className="overflow-h..." ref={function} onClick={function onClick} ...>
+                                              <div
+                                                className="flex h-40 items-center justify-center bg-gradient-to-br fro..."
+-                                               bis_skin_checked="1"
+                                              >
++                                               🌴
+                                              <div
+                                                className="p-4"
+-                                               bis_skin_checked="1"
+                                              >
+                                                <p>
+                                                <h3>
+                                                <div
+                                                  className="mt-2 flex items-center justify-between text-sm"
+-                                                 bis_skin_checked="1"
+                                                >
+                                        <LinkComponent>
+                                          <LinkComponent href="/farms/dea..." className="overflow-h...">
+                                            <a className="overflow-h..." ref={function} onClick={function onClick} ...>
+                                              <div
+                                                className="flex h-40 items-center justify-center bg-gradient-to-br fro..."
+-                                               bis_skin_checked="1"
+                                              >
++                                               🌊
+                                              <div
+                                                className="p-4"
+-                                               bis_skin_checked="1"
+                                              >
+                                                <p>
+                                                <h3>
+                                                <div
+                                                  className="mt-2 flex items-center justify-between text-sm"
+-                                                 bis_skin_checked="1"
+                                                >
+                                    <section className="mt-12">
+                                      <h2>
+                                      <p>
+                                      <div
+                                        className="mt-4 grid gap-4 sm:grid-cols-2 md:grid-cols-4"
+-                                       bis_skin_checked="1"
+                                      >
+                                        <div
+                                          className="rounded-2xl border border-stone-200 bg-white p-5 text-center shad..."
+-                                         bis_skin_checked="1"
+                                        >
+                                          <div
+                                            className="text-3xl"
+-                                           bis_skin_checked="1"
+                                          >
++                                           🍖
+                                          ...
+                                        <div
+                                          className="rounded-2xl border border-stone-200 bg-white p-5 text-center shad..."
+-                                         bis_skin_checked="1"
+                                        >
+                                          <div
+                                            className="text-3xl"
+-                                           bis_skin_checked="1"
+                                          >
++                                           🔊
+                                          ...
+                                        <div
+                                          className="rounded-2xl border border-stone-200 bg-white p-5 text-center shad..."
+-                                         bis_skin_checked="1"
+                                        >
+                                          <div
+                                            className="text-3xl"
+-                                           bis_skin_checked="1"
+                                          >
++                                           🎈
+                                          ...
+                                        <div
+                                          className="rounded-2xl border border-stone-200 bg-white p-5 text-center shad..."
+-                                         bis_skin_checked="1"
+                                        >
+                                          <div
+                                            className="text-3xl"
+-                                           bis_skin_checked="1"
+                                          >
++                                           📸
+                                          ...
+                                    <section className="mt-12 roun...">
+                                      <h2>
+                                      <div
+                                        className="mt-4 grid gap-4 text-emerald-50 md:grid-cols-3"
+-                                       bis_skin_checked="1"
+                                      >
+                                        <div
+-                                         bis_skin_checked="1"
+                                        >
+                                        <div
+-                                         bis_skin_checked="1"
+                                        >
+                                        <div
+-                                         bis_skin_checked="1"
+                                        >
+                                  <Footer>
+                                    <footer className="mt-16 bord...">
+                                      <div
+                                        className="mx-auto flex max-w-6xl flex-col gap-2 px-4 py-8 text-sm text-stone-500"
+-                                       bis_skin_checked="1"
+                                      >
+                  ...
+ 
+ GET / 200 in 61ms (next.js: 4ms, application-code: 57ms)
+ GET /farms/hero.jpg 404 in 162ms (next.js: 13ms, application-code: 149ms)
+[browser] A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+https://react.dev/link/hydration-mismatch
+
+  ...
+    <HotReload globalError={[...]} webSocket={WebSocket} staticIndicatorState={{pathname:null, ...}}>
+      <AppDevOverlayErrorBoundary globalError={[...]}>
+        <ReplaySsrOnlyErrors>
+        <DevRootHTTPAccessFallbackBoundary>
+          <HTTPAccessFallbackBoundary notFound={<NotAllowedRootHTTPFallbackError>}>
+            <HTTPAccessFallbackErrorBoundary pathname="/" notFound={<NotAllowedRootHTTPFallbackError>} ...>
+              <RedirectBoundary>
+                <RedirectErrorBoundary router={{...}}>
+                  <Head headRenderTree={{...}}>
+                    <__next_viewport_boundary__>
+                    <MetadataWrapper>
+                      <__next_metadata_boundary__>
+                        <div
+                          hidden={true}
+-                         bis_skin_checked="1"
+                        >
+                  <__next_root_layout_boundary__>
+                    <SegmentViewNode type="layout" pagePath="layout.tsx">
+                      <SegmentTrieNode>
+                      <link>
+                      <script>
+                      <RootLayout>
+                        <html lang="ar" dir="rtl">
+                          <body
+                            className="min-h-screen bg-stone-50 font-sans text-stone-900 antialiased"
+-                           __processed_998f8ca0-3937-4209-bc4b-d681faca4d48__="true"
+-                           bis_register="W3sibWFzdGVyIjp0cnVlLCJleHRlbnNpb25JZCI6ImVwcGlvY2VtaG1ubGJoanBsY2drb2ZjaWll..."
+                          >
+                            ...
+                              <SegmentViewNode type="page" pagePath="page.tsx">
+                                <SegmentTrieNode>
+                                <Home>
+                                  <Header>
+                                    <header className="sticky top...">
+                                      <div
+                                        className="mx-auto flex max-w-6xl items-center justify-between px-4 py-3"
+-                                       bis_skin_checked="1"
+                                      >
+                                  <section className="relative o..." style={{...}}>
+                                    <div
+                                      className="mx-auto max-w-6xl px-4 py-16 text-center md:py-24"
+-                                     bis_skin_checked="1"
+                                    >
+                                      <p>
+                                      <h1>
+                                      <p>
+                                      <div
+                                        className="mt-6 flex flex-col items-center justify-center gap-3"
+-                                       bis_skin_checked="1"
+                                      >
+                                  <main className="mx-auto ma...">
+                                    <section className="mt-8 grid ...">
+                                      <LinkComponent>
+                                        <LinkComponent href="/farms?mod..." className="rounded-2x...">
+                                          <a className="rounded-2x..." ref={function} onClick={function onClick} ...>
+                                            <div
+                                              className="text-4xl"
+-                                             bis_skin_checked="1"
+                                            >
++                                             ☀️
+                                            ...
+                                      <LinkComponent>
+                                        <LinkComponent href="/farms?mod..." className="rounded-2x...">
+                                          <a className="rounded-2x..." ref={function} onClick={function onClick} ...>
+                                            <div
+                                              className="text-4xl"
+-                                             bis_skin_checked="1"
+                                            >
++                                             🎉
+                                            ...
+                                    <section className="mt-12">
+                                      <div
+                                        className="flex items-center justify-between"
+-                                       bis_skin_checked="1"
+                                      >
+                                      <div
+                                        className="mt-4 grid gap-4 md:grid-cols-3"
+-                                       bis_skin_checked="1"
+                                      >
+                                        <LinkComponent>
+                                          <LinkComponent href="/farms/al-..." className="overflow-h...">
+                                            <a className="overflow-h..." ref={function} onClick={function onClick} ...>
+                                              <div
+                                                className="flex h-40 items-center justify-center bg-gradient-to-br fro..."
+-                                               bis_skin_checked="1"
+                                              >
++                                               🌴
+                                              <div
+                                                className="p-4"
+-                                               bis_skin_checked="1"
+                                              >
+                                                <p>
+                                                <h3>
+                                                <div
+                                                  className="mt-2 flex items-center justify-between text-sm"
+-                                                 bis_skin_checked="1"
+                                                >
+                                        <LinkComponent>
+                                          <LinkComponent href="/farms/dea..." className="overflow-h...">
+                                            <a className="overflow-h..." ref={function} onClick={function onClick} ...>
+                                              <div
+                                                className="flex h-40 items-center justify-center bg-gradient-to-br fro..."
+-                                               bis_skin_checked="1"
+                                              >
++                                               🌊
+                                              <div
+                                                className="p-4"
+-                                               bis_skin_checked="1"
+                                              >
+                                                <p>
+                                                <h3>
+                                                <div
+                                                  className="mt-2 flex items-center justify-between text-sm"
+-                                                 bis_skin_checked="1"
+                                                >
+                                    <section className="mt-12">
+                                      <h2>
+                                      <p>
+                                      <div
+                                        className="mt-4 grid gap-4 sm:grid-cols-2 md:grid-cols-4"
+-                                       bis_skin_checked="1"
+                                      >
+                                        <div
+                                          className="rounded-2xl border border-stone-200 bg-white p-5 text-center shad..."
+-                                         bis_skin_checked="1"
+                                        >
+                                          <div
+                                            className="text-3xl"
+-                                           bis_skin_checked="1"
+                                          >
++                                           🍖
+                                          ...
+                                        <div
+                                          className="rounded-2xl border border-stone-200 bg-white p-5 text-center shad..."
+-                                         bis_skin_checked="1"
+                                        >
+                                          <div
+                                            className="text-3xl"
+-                                           bis_skin_checked="1"
+                                          >
++                                           🔊
+                                          ...
+                                        <div
+                                          className="rounded-2xl border border-stone-200 bg-white p-5 text-center shad..."
+-                                         bis_skin_checked="1"
+                                        >
+                                          <div
+                                            className="text-3xl"
+-                                           bis_skin_checked="1"
+                                          >
++                                           🎈
+                                          ...
+                                        <div
+                                          className="rounded-2xl border border-stone-200 bg-white p-5 text-center shad..."
+-                                         bis_skin_checked="1"
+                                        >
+                                          <div
+                                            className="text-3xl"
+-                                           bis_skin_checked="1"
+                                          >
++                                           📸
+                                          ...
+                                    <section className="mt-12 roun...">
+                                      <h2>
+                                      <div
+                                        className="mt-4 grid gap-4 text-emerald-50 md:grid-cols-3"
+-                                       bis_skin_checked="1"
+                                      >
+                                        <div
+-                                         bis_skin_checked="1"
+                                        >
+                                        <div
+-                                         bis_skin_checked="1"
+                                        >
+                                        <div
+-                                         bis_skin_checked="1"
+                                        >
+                                  <Footer>
+                                    <footer className="mt-16 bord...">
+                                      <div
+                                        className="mx-auto flex max-w-6xl flex-col gap-2 px-4 py-8 text-sm text-stone-500"
+-                                       bis_skin_checked="1"
+                                      >
+                  ...
+ 
+✓ Compiled in 308ms
+ GET / 200 in 52ms (next.js: 8ms, application-code: 44ms)
+ GET /farms/farm-2-1.jpg 404 in 197ms (next.js: 12ms, application-code: 185ms)
+ GET /farms/farm-1-1.jpg 404 in 140ms (next.js: 3ms, application-code: 137ms)
+ GET /farms/farm-1-2.jpg 404 in 484ms (next.js: 15ms, application-code: 469ms)
+ GET /farms/farm-1-3.jpg 404 in 421ms (next.js: 7ms, application-code: 414ms)
+ GET /farms/farm-2-2.jpg 404 in 377ms (next.js: 3ms, application-code: 374ms)
+ GET /farms/farm-2-3.jpg 404 in 212ms (next.js: 3ms, application-code: 209ms)
+ GET / 200 in 78ms (next.js: 2ms, application-code: 76ms)
+ GET /farms/farm-1-1.jpg 404 in 549ms (next.js: 11ms, application-code: 537ms)
+ GET /farms/farm-2-1.jpg 404 in 426ms (next.js: 5ms, application-code: 421ms)
+ GET /farms/hero.jpg 404 in 190ms (next.js: 4ms, application-code: 186ms)
+ GET /farms/farm-1-2.jpg 404 in 151ms (next.js: 5ms, application-code: 146ms)
+ GET /farms/farm-2-3.jpg 404 in 363ms (next.js: 6ms, application-code: 358ms)
+ GET /farms/farm-2-2.jpg 404 in 298ms (next.js: 5ms, application-code: 292ms)
+ GET /farms/farm-1-3.jpg 404 in 214ms (next.js: 7ms, application-code: 207ms)
+✓ Compiled in 236ms
+ GET / 200 in 54ms (next.js: 4ms, application-code: 50ms)

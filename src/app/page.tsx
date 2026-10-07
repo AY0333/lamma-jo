@@ -1,6 +1,24 @@
 import Link from "next/link";
 import { Header, Footer } from "@/components/layout";
+import HeroSearch from "@/components/HeroSearch";
+import ImageCarousel from "@/components/ImageCarousel";
 import { FARMS, ADDONS, formatJOD } from "@/lib/data";
+
+const HERO_IMAGE = "/farms/hero.jpg";
+
+const OCCASION_SERVICES = [
+  { icon: "🍖", title: "بوفيه مفتوح", desc: "مشاوي ومقبلات وحلويات لضيوفك" },
+  { icon: "🔊", title: "DJ وصوتيات", desc: "سماعات احترافية وإضاءة أفراح" },
+  { icon: "🎈", title: "زينة وتجهيز حسب الطلب", desc: "بالونات وتنسيق كامل للمناسبة" },
+  { icon: "📸", title: "تصوير", desc: "مصوّر محترف يوثّق أجمل اللحظات" },
+];
+
+const TRUST = [
+  { icon: "✓", title: "أماكن موثوقة", desc: "مزارع محققة بصور حقيقية" },
+  { icon: "⚡", title: "حجز سريع", desc: "احجز بدقائق وأكّد عبر واتساب" },
+  { icon: "🎉", title: "كل الخدمات بمكان واحد", desc: "المزرعة + البوفيه + الزينة" },
+  { icon: "💰", title: "أسعار واضحة", desc: "سعر نهائي بدون مفاجآت" },
+];
 
 export default function Home() {
   const featured = FARMS.filter((f) => f.featured);
@@ -8,34 +26,38 @@ export default function Home() {
   return (
     <>
       <Header />
-      <main className="mx-auto max-w-6xl px-4">
-        <section className="py-12 text-center">
-          <p className="mb-3 inline-block rounded-full bg-emerald-100 px-4 py-1 text-sm font-bold text-emerald-800">
+      <section
+        className="relative overflow-hidden bg-stone-900 text-white"
+        style={{
+          backgroundImage: `linear-gradient(rgba(0,0,0,.55), rgba(0,0,0,.55)), url(${HERO_IMAGE})`,
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+        }}
+      >
+        <div className="mx-auto max-w-6xl px-4 py-16 text-center md:py-24">
+          <p className="mb-3 inline-block rounded-full bg-white/15 px-4 py-1 text-sm font-bold backdrop-blur">
             🇯🇴 أول منصة أردنية للمناسبات في المزارع
           </p>
           <h1 className="mx-auto max-w-2xl text-4xl font-black leading-tight md:text-5xl">
-            احجز مزرعتك ومناسبتك <span className="text-emerald-700">من مكان واحد</span>
+            احجز مزرعتك ومناسبتك من مكان واحد
           </h1>
-          <p className="mx-auto mt-4 max-w-xl text-lg text-stone-600">
-            استراحة نهارية للعيلة، أو حجز كامل لعرسك — مع بوفيه ودي جي وزينة، والدفع عند الوصول.
+          <p className="mx-auto mt-4 max-w-xl text-lg text-stone-200">
+            حجز مزارع وشاليهات مع خدمات المناسبات: البوفيه، DJ، الزينة والتصوير — والدفع عند الوصول.
           </p>
-          <div className="mt-6 flex flex-wrap justify-center gap-3">
-            <Link
-              href="/farms"
-              className="rounded-full bg-emerald-700 px-8 py-3 font-bold text-white hover:bg-emerald-800"
-            >
-              تصفح المزارع
-            </Link>
+          <div className="mt-6 flex flex-col items-center justify-center gap-3">
+            <HeroSearch />
             <Link
               href="/farms?mode=FULL_EVENT"
-              className="rounded-full border-2 border-emerald-700 px-8 py-3 font-bold text-emerald-700 hover:bg-emerald-50"
+              className="rounded-full border-2 border-white px-8 py-3 font-bold text-white transition hover:bg-white hover:text-stone-900"
             >
               احجز مناسبتك 🎉
             </Link>
           </div>
-        </section>
+        </div>
+      </section>
 
-        <section className="grid gap-4 md:grid-cols-2">
+      <main className="mx-auto max-w-6xl px-4">
+        <section className="mt-8 grid gap-4 md:grid-cols-2">
           <Link
             href="/farms?mode=DAY_USE"
             className="rounded-2xl border border-stone-200 bg-white p-6 shadow-sm transition hover:shadow-md"
@@ -55,6 +77,20 @@ export default function Home() {
         </section>
 
         <section className="mt-12">
+          <h2 className="text-2xl font-black">🎊 جهز مناسبتك بالكامل</h2>
+          <p className="mt-1 text-stone-600">كل خدمات المناسبة من مكان واحد — بسعر واضح من الأول.</p>
+          <div className="mt-4 grid gap-4 sm:grid-cols-2 md:grid-cols-4">
+            {OCCASION_SERVICES.map((s) => (
+              <div key={s.title} className="rounded-2xl border border-stone-200 bg-white p-5 text-center shadow-sm transition hover:-translate-y-1 hover:shadow-md">
+                <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-full bg-emerald-100 text-3xl">{s.icon}</div>
+                <p className="mt-2 font-black">{s.title}</p>
+                <p className="mt-1 text-sm text-stone-500">{s.desc}</p>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        <section className="mt-12">
           <div className="flex items-center justify-between">
             <h2 className="text-2xl font-black">🏡 مزارع مميزة</h2>
             <Link href="/farms" className="text-sm font-bold text-emerald-700 hover:underline">
@@ -68,8 +104,8 @@ export default function Home() {
                 href={`/farms/${f.slug}`}
                 className="overflow-hidden rounded-2xl border border-stone-200 bg-white shadow-sm transition hover:shadow-md"
               >
-                <div className="flex h-40 items-center justify-center bg-gradient-to-br from-emerald-100 to-amber-100 text-6xl">
-                  {f.governorate === "مادبا" ? "🌊" : f.governorate === "عجلون" ? "🌲" : "🌴"}
+                <div className="h-40">
+                  <ImageCarousel images={f.images} alt={f.name} fallbackEmoji={f.emoji} />
                 </div>
                 <div className="p-4">
                   <p className="text-xs font-bold text-emerald-700">{f.governorate} • {f.area}</p>
@@ -93,6 +129,19 @@ export default function Home() {
                 <div className="text-3xl">{a.icon}</div>
                 <p className="mt-2 font-bold">{a.name}</p>
                 <p className="text-sm font-semibold text-emerald-700">{a.priceLabel}</p>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        <section className="mt-12 rounded-2xl border border-stone-200 bg-white p-8">
+          <h2 className="text-center text-2xl font-black">🤝 لماذا لمّة JO؟</h2>
+          <div className="mt-4 grid gap-4 sm:grid-cols-2 md:grid-cols-4">
+            {TRUST.map((t) => (
+              <div key={t.title} className="rounded-2xl bg-stone-50 p-5 text-center">
+                <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-full bg-emerald-700 text-xl font-black text-white">{t.icon}</div>
+                <p className="mt-2 font-black">{t.title}</p>
+                <p className="mt-1 text-sm text-stone-500">{t.desc}</p>
               </div>
             ))}
           </div>
