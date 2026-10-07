@@ -4,7 +4,7 @@ import HeroSearch from "@/components/HeroSearch";
 import ImageCarousel from "@/components/ImageCarousel";
 import { FARMS, ADDONS, formatJOD } from "@/lib/data";
 
-const HERO_IMAGE = "/farm/waha1.jpg";
+const HERO_IMAGE = "/farm/agl1.jpg";
 
 const OCCASION_SERVICES = [
   { icon: "🍖", title: "بوفيه مفتوح", desc: "مشاوي ومقبلات وحلويات لضيوفك" },
@@ -35,6 +35,9 @@ export default function Home() {
         }}
       >
         <div className="mx-auto max-w-6xl px-4 py-16 text-center md:py-24">
+          <div className="mb-6">
+            <HeroSearch />
+          </div>
           <p className="mb-3 inline-block rounded-full bg-white/15 px-4 py-1 text-sm font-bold backdrop-blur">
             🇯🇴 أول منصة أردنية للمناسبات في المزارع
           </p>
@@ -45,7 +48,6 @@ export default function Home() {
             حجز مزارع وشاليهات مع خدمات المناسبات: البوفيه، DJ، الزينة والتصوير — والدفع عند الوصول.
           </p>
           <div className="mt-6 flex flex-col items-center justify-center gap-3">
-            <HeroSearch />
             <Link
               href="/farms?mode=FULL_EVENT"
               className="rounded-full border-2 border-white px-8 py-3 font-bold text-white transition hover:bg-white hover:text-stone-900"
@@ -102,15 +104,14 @@ export default function Home() {
               <Link
                 key={f.id}
                 href={`/farms/${f.slug}`}
-                className="overflow-hidden rounded-2xl border border-stone-200 bg-white shadow-sm transition hover:shadow-md"
+                className="flex flex-col overflow-hidden rounded-2xl border border-stone-200 bg-white shadow-sm transition hover:shadow-md"
               >
-                <div className="h-40">
-                  <ImageCarousel images={f.images} alt={f.name} fallbackEmoji={f.emoji} />
-                </div>
-                <div className="p-4">
-                  <p className="text-xs font-bold text-emerald-700">{f.governorate} • {f.area}</p>
-                  <h3 className="mt-1 font-black">{f.name}</h3>
-                  <div className="mt-2 flex items-center justify-between text-sm">
+                <ImageCarousel images={f.images} alt={f.name} fallbackEmoji={f.emoji} heightClass="h-44" />
+                <div className="flex flex-1 flex-col p-4">
+                  <h3 className="font-black">{f.name}</h3>
+                  <p className="mt-0.5 text-xs font-bold text-emerald-700">{f.governorate} • {f.area}</p>
+                  <p className="mt-1 line-clamp-2 text-sm text-stone-600">{f.description}</p>
+                  <div className="mt-auto flex items-center justify-between border-t border-stone-100 pt-3 text-sm">
                     <span>☀️ استراحة: <b>{formatJOD(f.priceDayUse)}</b></span>
                     <span>🎉 مناسبة: <b>{formatJOD(f.priceFullEvent)}</b></span>
                   </div>

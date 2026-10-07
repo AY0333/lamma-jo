@@ -51,7 +51,7 @@ export const FARMS: Farm[] = [
     whatsapp: "962790000001", featured: true, emoji: "🌴",
     images: ["/farm/waha1.jpg", "/farm/waha2.jpg", "/farm/waha3.jpg"],
   },
-  {
+  {  //public/farm/bahr1.jpg D:\OllamaModels\Cline\lamma-jo\public\farm\bahr2.jpg
     id: "farm-2",
     name: "شاليه البحر الميت فيو",
     slug: "deadsea-view-chalet",
@@ -63,7 +63,7 @@ export const FARMS: Farm[] = [
     hasPool: true, hasPlayground: false, hasBBQ: true,
     priceDayUse: 150, priceFullEvent: 600, depositPercent: 30,
     whatsapp: "962790000002", featured: true, emoji: "🌊",
-    images: ["/farms/farm-2-1.jpg", "/farms/farm-2-2.jpg", "/farms/farm-2-3.jpg"],
+    images: ["/farm/bahr1.jpg", "/farm/bahr2.jpg", "/farm/bahr3.jpg"],
   },
   {
     id: "farm-3",
@@ -77,7 +77,7 @@ export const FARMS: Farm[] = [
     hasPool: true, hasPlayground: true, hasBBQ: true,
     priceDayUse: 70, priceFullEvent: 280, depositPercent: 30,
     whatsapp: "962790000003", featured: false, emoji: "🌲",
-    images: ["/farms/farm-3-1.jpg", "/farms/farm-3-2.jpg", "/farms/farm-3-3.jpg"],
+    images: ["/farm/agl1.jpg", "/farms/farm-3-2.jpg", "/farms/farm-3-3.jpg"],
   },
 ];
 

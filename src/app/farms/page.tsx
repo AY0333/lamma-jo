@@ -51,14 +51,12 @@ export default async function FarmsPage({
             <Link
               key={f.id}
               href={`/farms/${f.slug}${params.mode ? `?mode=${params.mode}` : ""}`}
-              className="overflow-hidden rounded-2xl border border-stone-200 bg-white shadow-sm transition hover:shadow-md"
+              className="flex flex-col overflow-hidden rounded-2xl border border-stone-200 bg-white shadow-sm transition hover:shadow-md"
             >
-              <div className="h-44">
-                <ImageCarousel images={f.images} alt={f.name} fallbackEmoji={f.emoji} />
-              </div>
-              <div className="p-4">
-                <p className="text-xs font-bold text-emerald-700">{f.governorate} • {f.area}</p>
-                <h3 className="mt-1 text-lg font-black">{f.name}</h3>
+              <ImageCarousel images={f.images} alt={f.name} fallbackEmoji={f.emoji} heightClass="h-44" />
+              <div className="flex flex-1 flex-col p-4">
+                <h3 className="text-lg font-black">{f.name}</h3>
+                <p className="mt-0.5 text-xs font-bold text-emerald-700">{f.governorate} • {f.area}</p>
                 <p className="mt-1 line-clamp-2 text-sm text-stone-600">{f.description}</p>
                 <div className="mt-2 flex flex-wrap gap-2 text-xs">
                   {f.hasPool && <span className="rounded bg-sky-100 px-2 py-0.5">🏊 مسبح</span>}
@@ -66,7 +64,7 @@ export default async function FarmsPage({
                   {f.hasPlayground && <span className="rounded bg-green-100 px-2 py-0.5">🛝 ملعب</span>}
                   <span className="rounded bg-stone-100 px-2 py-0.5">🛏️ {f.bedrooms} غرف</span>
                 </div>
-                <div className="mt-3 flex items-center justify-between border-t border-stone-100 pt-3 text-sm">
+                <div className="mt-auto flex items-center justify-between border-t border-stone-100 pt-3 text-sm">
                   <span>☀️ <b className="text-emerald-700">{formatJOD(f.priceDayUse)}</b></span>
                   <span>🎉 <b className="text-emerald-700">{formatJOD(f.priceFullEvent)}</b></span>
                 </div>

@@ -7,51 +7,82 @@ interface Props {
   alt: string;
   fallbackEmoji?: string;
   autoMs?: number;
+  heightClass?: string;
 }
 
-export default function ImageCarousel({ images, alt, fallbackEmoji, autoMs = 4000 }: Props) {
+export default function ImageCarousel({
+  images,
+  alt,
+  fallbackEmoji,
+  autoMs = 4000,
+  heightClass = "h-44",
+}: Props) {
   const [index, setIndex] = useState(0);
   const [paused, setPaused] = useState(false);
+  const [broken, setBroken] = useState<Record<string, boolean>>({});
   const timer = useRef<ReturnType<typeof setInterval> | null>(null);
 
+  const valid = images.filter((s) => !broken[s]);
+
   const go = useCallback(
-    (dir: 1 | -1) => {
-      setIndex((i) => (i + dir + images.length) % images.length);
+    (e: React.MouseEvent, dir: 1 | -1) => {
+      e.preventDefault();
+      e.stopPropagation();
+      if (valid.length < 2) return;
+      setIndex((i) => (i + dir + valid.length) % valid.length);
       setPaused(true);
     },
-    [images.length]
+    [valid.length]
   );
 
-  const jump = useCallback((i: number) => {
-    setIndex(i);
-    setPaused(true);
+  const jump = useCallback(
+    (e: React.MouseEvent, i: number) => {
+      e.preventDefault();
+      e.stopPropagation();
+      setIndex(i);
+      setPaused(true);
+    },
+    []
+  );
+
+  const markBroken = useCallback((src: string) => {
+    setBroken((b) => {
+      if (b[src]) return b;
+      const next = { ...b, [src]: true };
+      return next;
+    });
+    setIndex(0);
   }, []);
 
   useEffect(() => {
-    if (paused || images.length < 2) return;
+    if (paused || valid.length < 2) return;
     timer.current = setInterval(() => {
-      setIndex((i) => (i + 1) % images.length);
+      setIndex((i) => (i + 1) % valid.length);
     }, autoMs);
     return () => {
       if (timer.current) clearInterval(timer.current);
     };
-  }, [paused, images.length, autoMs]);
+  }, [paused, valid.length, autoMs]);
 
-  if (images.length === 0) {
+  if (valid.length === 0) {
     return (
-      <div className="flex h-full w-full items-center justify-center bg-gradient-to-br from-emerald-100 to-amber-100 text-7xl">
+      <div
+        className={`flex ${heightClass} w-full items-center justify-center bg-gradient-to-br from-emerald-100 to-amber-100 text-6xl`}
+      >
         {fallbackEmoji ?? "🏡"}
       </div>
     );
   }
 
+  const safeIndex = index % valid.length;
+
   return (
-    <div className="group relative h-full w-full overflow-hidden">
+    <div className={`group relative ${heightClass} w-full overflow-hidden bg-stone-100`}>
       <div
         className="flex h-full transition-transform duration-500 ease-in-out"
-        style={{ transform: `translateX(${index * 100}%)` }}
+        style={{ transform: `translateX(${safeIndex * 100}%)` }}
       >
-        {images.map((src, i) => (
+        {valid.map((src, i) => (
           <div key={src + i} className="relative h-full w-full shrink-0">
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
@@ -59,37 +90,44 @@ export default function ImageCarousel({ images, alt, fallbackEmoji, autoMs = 400
               alt={`${alt} - ${i + 1}`}
               className="h-full w-full object-cover"
               loading={i === 0 ? "eager" : "lazy"}
+              onError={() => markBroken(src)}
             />
           </div>
         ))}
       </div>
 
-      {images.length > 1 && (
+      {valid.length > 1 && (
         <>
           <button
             type="button"
             aria-label="الصورة السابقة"
-            onClick={() => go(1)}
-            className="absolute right-2 top-1/2 -translate-y-1/2 rounded-full bg-black/50 px-3 py-1.5 text-lg text-white opacity-0 transition group-hover:opacity-100 hover:bg-black/70 max-md:opacity-100"
+            onClick={(e) => go(e, 1)}
+            onMouseDown={(e) => e.stopPropagation()}
+            className="absolute right-2 top-1/2 z-10 -translate-y-1/2 rounded-full bg-black/50 px-3 py-1.5 text-lg leading-none text-white opacity-0 shadow transition group-hover:opacity-100 hover:bg-black/70 focus:opacity-100 max-md:opacity-100"
           >
             ›
           </button>
           <button
             type="button"
             aria-label="الصورة التالية"
-            onClick={() => go(-1)}
-            className="absolute left-2 top-1/2 -translate-y-1/2 rounded-full bg-black/50 px-3 py-1.5 text-lg text-white opacity-0 transition group-hover:opacity-100 hover:bg-black/70 max-md:opacity-100"
+            onClick={(e) => go(e, -1)}
+            onMouseDown={(e) => e.stopPropagation()}
+            className="absolute left-2 top-1/2 z-10 -translate-y-1/2 rounded-full bg-black/50 px-3 py-1.5 text-lg leading-none text-white opacity-0 shadow transition group-hover:opacity-100 hover:bg-black/70 focus:opacity-100 max-md:opacity-100"
           >
             ‹
           </button>
-          <div className="absolute bottom-2 right-0 left-0 flex justify-center gap-1.5">
-            {images.map((_, i) => (
+          <div
+            className="absolute bottom-2 right-0 left-0 z-10 flex justify-center gap-1.5"
+            onClick={(e) => e.stopPropagation()}
+            onMouseDown={(e) => e.stopPropagation()}
+          >
+            {valid.map((_, i) => (
               <button
                 key={i}
                 type="button"
                 aria-label={`صورة ${i + 1}`}
-                onClick={() => jump(i)}
-                className={`h-2 rounded-full transition-all ${i === index ? "w-6 bg-white" : "w-2 bg-white/60 hover:bg-white/90"}`}
+                onClick={(e) => jump(e, i)}
+                className={`h-2 rounded-full transition-all ${i === safeIndex ? "w-6 bg-white" : "w-2 bg-white/60 hover:bg-white/90"}`}
               />
             ))}
           </div>
@@ -98,3 +136,4 @@ export default function ImageCarousel({ images, alt, fallbackEmoji, autoMs = 400
     </div>
   );
 }
+
