@@ -49,7 +49,7 @@ export const FARMS: Farm[] = [
     hasPool: true, hasPlayground: true, hasBBQ: true,
     priceDayUse: 90, priceFullEvent: 350, depositPercent: 30,
     whatsapp: "962790000001", featured: true, emoji: "🌴",
-    images: ["/farms/farm-1-1.jpg", "/farms/farm-1-2.jpg", "/farms/farm-1-3.jpg"],
+    images: ["/farm/waha1.jpg", "/farm/waha2.jpg", "/farm/waha3.jpg"],
   },
   {
     id: "farm-2",

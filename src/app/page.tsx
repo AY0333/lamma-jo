@@ -4,7 +4,7 @@ import HeroSearch from "@/components/HeroSearch";
 import ImageCarousel from "@/components/ImageCarousel";
 import { FARMS, ADDONS, formatJOD } from "@/lib/data";
 
-const HERO_IMAGE = "/farms/hero.jpg";
+const HERO_IMAGE = "/farm/waha1.jpg";
 
 const OCCASION_SERVICES = [
   { icon: "🍖", title: "بوفيه مفتوح", desc: "مشاوي ومقبلات وحلويات لضيوفك" },
