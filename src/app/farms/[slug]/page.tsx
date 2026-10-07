@@ -32,7 +32,7 @@ export default async function FarmPage({
           → رجوع للمزارع
         </Link>
 
-        <div className="mt-3 h-64 overflow-hidden rounded-2xl md:h-80">
+        <div className="mt-3 overflow-hidden rounded-2xl">
           <ImageCarousel images={farm.images} alt={farm.name} fallbackEmoji={farm.emoji} />
         </div>
 

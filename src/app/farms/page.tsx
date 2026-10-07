@@ -53,7 +53,7 @@ export default async function FarmsPage({
               href={`/farms/${f.slug}${params.mode ? `?mode=${params.mode}` : ""}`}
               className="flex flex-col overflow-hidden rounded-2xl border border-stone-200 bg-white shadow-sm transition hover:shadow-md"
             >
-              <ImageCarousel images={f.images} alt={f.name} fallbackEmoji={f.emoji} heightClass="h-44" />
+              <ImageCarousel images={f.images} alt={f.name} fallbackEmoji={f.emoji} />
               <div className="flex flex-1 flex-col p-4">
                 <h3 className="text-lg font-black">{f.name}</h3>
                 <p className="mt-0.5 text-xs font-bold text-emerald-700">{f.governorate} • {f.area}</p>

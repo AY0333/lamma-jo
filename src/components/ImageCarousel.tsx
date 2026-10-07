@@ -7,7 +7,7 @@ interface Props {
   alt: string;
   fallbackEmoji?: string;
   autoMs?: number;
-  heightClass?: string;
+  frameClass?: string;
 }
 
 export default function ImageCarousel({
@@ -15,7 +15,7 @@ export default function ImageCarousel({
   alt,
   fallbackEmoji,
   autoMs = 4000,
-  heightClass = "h-44",
+  frameClass = "aspect-video",
 }: Props) {
   const [index, setIndex] = useState(0);
   const [paused, setPaused] = useState(false);
@@ -67,7 +67,7 @@ export default function ImageCarousel({
   if (valid.length === 0) {
     return (
       <div
-        className={`flex ${heightClass} w-full items-center justify-center bg-gradient-to-br from-emerald-100 to-amber-100 text-6xl`}
+        className={`flex ${frameClass} w-full items-center justify-center bg-gradient-to-br from-emerald-100 to-amber-100 text-6xl`}
       >
         {fallbackEmoji ?? "🏡"}
       </div>
@@ -77,7 +77,7 @@ export default function ImageCarousel({
   const safeIndex = index % valid.length;
 
   return (
-    <div className={`group relative ${heightClass} w-full overflow-hidden bg-stone-100`}>
+    <div className={`group relative ${frameClass} w-full overflow-hidden bg-stone-100`}>
       <div
         className="flex h-full transition-transform duration-500 ease-in-out"
         style={{ transform: `translateX(${safeIndex * 100}%)` }}
@@ -88,7 +88,7 @@ export default function ImageCarousel({
             <img
               src={src}
               alt={`${alt} - ${i + 1}`}
-              className="h-full w-full object-cover"
+              className="h-full w-full object-contain"
               loading={i === 0 ? "eager" : "lazy"}
               onError={() => markBroken(src)}
             />
