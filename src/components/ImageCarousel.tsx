@@ -101,20 +101,20 @@ export default function ImageCarousel({
           <button
             type="button"
             aria-label="الصورة السابقة"
-            onClick={(e) => go(e, 1)}
+            onClick={(e) => go(e, -1)}
             onMouseDown={(e) => e.stopPropagation()}
             className="absolute right-2 top-1/2 z-10 -translate-y-1/2 rounded-full bg-black/50 px-3 py-1.5 text-lg leading-none text-white opacity-0 shadow transition group-hover:opacity-100 hover:bg-black/70 focus:opacity-100 max-md:opacity-100"
           >
-            ›
+          →
           </button>
           <button
             type="button"
             aria-label="الصورة التالية"
-            onClick={(e) => go(e, -1)}
+            onClick={(e) => go(e, 1)}
             onMouseDown={(e) => e.stopPropagation()}
             className="absolute left-2 top-1/2 z-10 -translate-y-1/2 rounded-full bg-black/50 px-3 py-1.5 text-lg leading-none text-white opacity-0 shadow transition group-hover:opacity-100 hover:bg-black/70 focus:opacity-100 max-md:opacity-100"
           >
-            ‹
+          ←
           </button>
           <div
             className="absolute bottom-2 right-0 left-0 z-10 flex justify-center gap-1.5"

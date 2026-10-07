@@ -21,6 +21,7 @@ const FARMS = [
     capacityDayUse: 40, capacityEvent: 120, bedrooms: 3, bathrooms: 2,
     hasPool: true, hasPlayground: true, hasBBQ: true,
     priceDayUse: 90, priceFullEvent: 350, whatsapp: "962790000001", featured: true,
+    images: ["/farm/waha1.jpg", "/farm/waha2.jpg", "/farm/waha3.jpg"],
   },
   {
     name: "شاليه البحر الميت فيو",
@@ -31,6 +32,7 @@ const FARMS = [
     capacityDayUse: 25, capacityEvent: 80, bedrooms: 4, bathrooms: 3,
     hasPool: true, hasPlayground: false, hasBBQ: true,
     priceDayUse: 150, priceFullEvent: 600, whatsapp: "962790000002", featured: true,
+    images: ["/farm/bahr1.jpg", "/farm/bahr2.jpg", "/farm/bahr3.jpg"],
   },
   {
     name: "مزرعة جبال عجلون",
@@ -41,6 +43,7 @@ const FARMS = [
     capacityDayUse: 30, capacityEvent: 100, bedrooms: 2, bathrooms: 2,
     hasPool: true, hasPlayground: true, hasBBQ: true,
     priceDayUse: 70, priceFullEvent: 280, whatsapp: "962790000003", featured: false,
+    images: ["/farm/agl1.jpg"],
   },
 ];
 
@@ -57,18 +60,19 @@ async function main() {
   }
 
   for (const f of FARMS) {
+    const { images, ...farmData } = f;
     const farm = await db.farm.upsert({
       where: { slug: f.slug },
       update: {},
-      create: { ...f, ownerId: owner.id, status: "PUBLISHED" },
+      create: { ...farmData, ownerId: owner.id, status: "PUBLISHED" },
     });
     await db.farmPhoto.deleteMany({ where: { farmId: farm.id } });
     await db.farmPhoto.createMany({
-      data: [1, 2, 3].map((n) => ({
+      data: images.map((url, i) => ({
         farmId: farm.id,
-        url: `/farms/${f.slug}-${n}.jpg`,
-        alt: `${f.name} - صورة ${n}`,
-        order: n,
+        url,
+        alt: `${f.name} - صورة ${i + 1}`,
+        order: i,
       })),
     });
     await db.package.deleteMany({ where: { farmId: farm.id } });

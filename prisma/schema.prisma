@@ -1,6 +1,6 @@
-// Lamma JO — Prisma schema
-// Dual-mode booking: DAY_USE (استراحة نهارية) + FULL_EVENT (حجز مناسبة كاملة)
-// SQLite for local MVP — same schema migrates to PostgreSQL for production.
+// Lamma JO — Prisma schema (SQLite)
+// ملاحظة: SQLite لا يدعم enum — الحقول النصية بقيم افتراضية.
+// نموذج متوافق مع واجهة الأدمن: مزارع + صور متعددة + حجوزات + إضافات.
 
 generator client {
   provider = "prisma-client-js"
@@ -11,51 +11,11 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-enum UserRole {
-  CUSTOMER
-  FARM_OWNER
-  SUPPLIER
-  ADMIN
-}
-
-enum FarmStatus {
-  DRAFT
-  PENDING_REVIEW
-  PUBLISHED
-  SUSPENDED
-}
-
-enum BookingMode {
-  DAY_USE     // استراحة نهارية (ساعات)
-  FULL_EVENT  // حجز مناسبة كاملة (يوم كامل/ليلة)
-}
-
-enum BookingStatus {
-  PENDING_OWNER   // بانتظار موافقة المالك
-  CONFIRMED       // مؤكد
-  REJECTED        // مرفوض
-  CANCELLED       // ملغي
-  COMPLETED       // مكتمل
-}
-
-enum PaymentMethod {
-  ON_ARRIVAL   // دفع عند الوصول (المرحلة 1)
-  BANK_TRANSFER // تحويل بنكي يدوي
-  ONLINE        // بوابة إلكترونية (المرحلة 2)
-}
-
-enum PaymentStatus {
-  UNPAID
-  DEPOSIT_PAID
-  FULLY_PAID
-  REFUNDED
-}
-
 model User {
   id        String   @id @default(cuid())
   name      String
   phone     String   @unique
-  role      UserRole @default(CUSTOMER)
+  role      String   @default("CUSTOMER") // CUSTOMER | FARM_OWNER | SUPPLIER | ADMIN
   createdAt DateTime @default(now())
 
   farms    Farm[]    @relation("FarmOwner")
@@ -64,33 +24,33 @@ model User {
 }
 
 model Farm {
-  id              String     @id @default(cuid())
+  id              String   @id @default(cuid())
   name            String
-  slug            String     @unique
-  governorate     String     // المحافظة: عمّان، إربد، الزرقاء...
-  area            String     // المنطقة: عجلون، البحر الميت...
+  slug            String   @unique
+  governorate     String   // المحافظة: عمّان، إربد، الزرقاء...
+  area            String   // المنطقة: الفحيص، عجلون...
   address         String?
   mapUrl          String?
   description     String
-  capacityDayUse  Int        // سعة الاستراحة
-  capacityEvent   Int        // سعة المناسبة
-  bedrooms        Int        @default(0)
-  bathrooms       Int        @default(0)
-  hasPool         Boolean    @default(false)
-  hasPlayground   Boolean    @default(false)
-  hasBBQ          Boolean    @default(false)
-  priceDayUse     Float      // سعر الاستراحة (دينار)
-  priceFullEvent  Float      // سعر الحجز الكامل (دينار)
-  depositPercent  Int        @default(30) // نسبة العربون %
+  capacityDayUse  Int      // سعة الاستراحة
+  capacityEvent   Int      // سعة المناسبة
+  bedrooms        Int      @default(0)
+  bathrooms       Int      @default(0)
+  hasPool         Boolean  @default(false)
+  hasPlayground   Boolean  @default(false)
+  hasBBQ          Boolean  @default(false)
+  priceDayUse     Float    // سعر الاستراحة (دينار)
+  priceFullEvent  Float    // سعر الحجز الكامل (دينار)
+  depositPercent  Int      @default(30) // نسبة العربون %
   whatsapp        String
-  status          FarmStatus @default(DRAFT)
-  featured        Boolean    @default(false)
-  ratingAvg       Float      @default(0)
-  ratingCount     Int        @default(0)
-  ownerId         String
-  owner           User       @relation("FarmOwner", fields: [ownerId], references: [id])
-  createdAt       DateTime   @default(now())
-  updatedAt       DateTime   @updatedAt
+  status          String   @default("PUBLISHED") // DRAFT | PENDING_REVIEW | PUBLISHED | SUSPENDED
+  featured        Boolean  @default(false)
+  ratingAvg       Float    @default(0)
+  ratingCount     Int      @default(0)
+  ownerId         String?
+  owner           User?    @relation("FarmOwner", fields: [ownerId], references: [id])
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
 
   photos   FarmPhoto[]
   bookings Booking[]
@@ -116,7 +76,7 @@ model AddOn {
   description String?
   price       Float   // سعر ثابت (دينار)
   priceUnit   String  @default("per_booking") // per_booking | per_person | per_hour
-  icon        String  @default("sparkles")
+  icon        String  @default("✨")
   active      Boolean @default(true)
 
   items BookingAddOn[]
@@ -133,30 +93,30 @@ model Package {
 }
 
 model Booking {
-  id            String        @id @default(cuid())
-  code          String        @unique // رقم الحجز: LM-XXXXXX
+  id            String   @id @default(cuid())
+  code          String   @unique // رقم الحجز: LM-XXXXXX
   farmId        String
-  farm          Farm          @relation(fields: [farmId], references: [id])
+  farm          Farm     @relation(fields: [farmId], references: [id])
   customerId    String?
-  customer      User?         @relation(fields: [customerId], references: [id])
+  customer      User?    @relation(fields: [customerId], references: [id])
   customerName  String
   customerPhone String
-  mode          BookingMode
-  eventType     String?       // عرس، مولود، تخرج، طشة عائلية...
+  mode          String   @default("DAY_USE") // DAY_USE | FULL_EVENT
+  eventType     String?  // عرس، مولود، تخرج، طشة عائلية...
   guests        Int
-  date          String        // YYYY-MM-DD
-  startTime     String?       // للاستراحة: HH:MM
+  date          String   // YYYY-MM-DD
+  startTime     String?
   endTime       String?
-  status        BookingStatus @default(PENDING_OWNER)
-  paymentMethod PaymentMethod @default(ON_ARRIVAL)
-  paymentStatus PaymentStatus @default(UNPAID)
+  status        String   @default("PENDING_OWNER") // PENDING_OWNER | CONFIRMED | REJECTED | CANCELLED | COMPLETED
+  paymentMethod String   @default("ON_ARRIVAL") // ON_ARRIVAL | BANK_TRANSFER | ONLINE
+  paymentStatus String   @default("UNPAID") // UNPAID | DEPOSIT_PAID | FULLY_PAID | REFUNDED
   basePrice     Float
-  addOnsTotal   Float         @default(0)
+  addOnsTotal   Float    @default(0)
   totalPrice    Float
   depositAmount Float
   notes         String?
-  createdAt     DateTime      @default(now())
-  updatedAt     DateTime      @updatedAt
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
 
   addOns BookingAddOn[]
 
@@ -187,3 +147,4 @@ model Review {
 
   @@index([farmId])
 }
+
