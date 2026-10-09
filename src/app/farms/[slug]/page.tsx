@@ -5,7 +5,8 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Header, Footer } from "@/components/layout";
 import ImageCarousel from "@/components/ImageCarousel";
-import { getFarm, formatJOD, whatsappLink } from "@/lib/data";
+import { formatJOD, whatsappLink } from "@/lib/data";
+import { getFarmBySlug } from "@/lib/farms-db";
 
 export default async function FarmPage({
   params,
@@ -16,7 +17,7 @@ export default async function FarmPage({
 }) {
   const { slug } = await params;
   const sp = await searchParams;
-  const farm = getFarm(slug);
+  const farm = await getFarmBySlug(slug);
   if (!farm) notFound();
 
   const wa = whatsappLink(

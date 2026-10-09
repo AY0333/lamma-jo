@@ -2,7 +2,8 @@ import Link from "next/link";
 import { Header, Footer } from "@/components/layout";
 import HeroSearch from "@/components/HeroSearch";
 import ImageCarousel from "@/components/ImageCarousel";
-import { FARMS, ADDONS, formatJOD } from "@/lib/data";
+import { ADDONS, formatJOD } from "@/lib/data";
+import { getFarms } from "@/lib/farms-db";
 
 const HERO_IMAGE = "/farm/agl1.jpg";
 
@@ -20,8 +21,8 @@ const TRUST = [
   { icon: "💰", title: "أسعار واضحة", desc: "سعر نهائي بدون مفاجآت" },
 ];
 
-export default function Home() {
-  const featured = FARMS.filter((f) => f.featured);
+export default async function Home() {
+  const featured = await getFarms({ featured: true });
 
   return (
     <>

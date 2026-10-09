@@ -5,13 +5,21 @@ import Link from "next/link";
 import { useSearchParams } from "next/navigation";
 import BookFields from "./BookFields";
 import {
-  FARMS, ADDONS, BookingRecord,
+  type Farm,
+  type AddOn,
+  BookingRecord,
   bookingCode, formatJOD, saveBooking, whatsappLink,
 } from "@/lib/data";
 
-export function BookForm() {
+const DEFAULT_ADDON = "a2";
+
+export function BookForm({ farms, addOns }: { farms: Farm[]; addOns: AddOn[] }) {
   const sp = useSearchParams();
-  const [farmId, setFarmId] = useState(sp.get("farm") ?? FARMS[0].slug);
+  const [farmId, setFarmId] = useState(() => {
+    const pre = sp.get("farm");
+    if (pre && farms.some((f) => f.slug === pre || f.id === pre)) return pre;
+    return farms[0]?.slug ?? "";
+  });
   const [mode, setMode] = useState<"DAY_USE" | "FULL_EVENT">(
     sp.get("mode") === "DAY_USE" ? "DAY_USE" : "FULL_EVENT"
   );
@@ -20,21 +28,35 @@ export function BookForm() {
   const [phone, setPhone] = useState("");
   const [guests, setGuests] = useState(20);
   const [date, setDate] = useState("");
-  const [selected, setSelected] = useState<string[]>(["a2"]);
+  const [selected, setSelected] = useState<string[]>(() =>
+    addOns.some((a) => a.id === DEFAULT_ADDON) ? [DEFAULT_ADDON] : addOns.length > 0 ? [addOns[0].id] : []
+  );
   const [done, setDone] = useState<BookingRecord | null>(null);
   const [error, setError] = useState("");
+  const [saving, setSaving] = useState(false);
 
-  const farm = FARMS.find((f) => f.slug === farmId || f.id === farmId) ?? FARMS[0];
+  const farm = farms.find((f) => f.slug === farmId || f.id === farmId) ?? farms[0];
+
+  if (!farm) {
+    return (
+      <div className="mt-6 rounded-2xl border border-stone-200 bg-white p-8 text-center shadow-sm">
+        <p className="text-5xl">🌿</p>
+        <p className="mt-2 font-bold">لا توجد مزارع متاحة حاليًا</p>
+        <p className="mt-1 text-sm text-stone-500">أضف مزرعة من لوحة التحكم (/admin) لتظهر هنا</p>
+      </div>
+    );
+  }
+
   const capacity = mode === "FULL_EVENT" ? farm.capacityEvent : farm.capacityDayUse;
   const basePrice = mode === "FULL_EVENT" ? farm.priceFullEvent : farm.priceDayUse;
 
   const addOnsTotal = useMemo(() => {
     return selected.reduce((sum, id) => {
-      const a = ADDONS.find((x) => x.id === id);
+      const a = addOns.find((x) => x.id === id);
       if (!a) return sum;
       return sum + (a.priceUnit === "per_person" ? a.price * guests : a.price);
     }, 0);
-  }, [selected, guests]);
+  }, [selected, guests, addOns]);
 
   const total = basePrice + addOnsTotal;
   const deposit = Math.round((total * farm.depositPercent) / 100);
@@ -52,8 +74,45 @@ export function BookForm() {
     if (guests < 1 || guests > capacity)
       return setError(`عدد الضيوف يجب أن يكون بين 1 و ${capacity}`);
     if (!date) return setError("اختر تاريخ الحجز");
+    void doSubmit();
+  }
+
+  async function doSubmit() {
+    const payload = {
+      farmId: farm.id,
+      mode,
+      eventType: mode === "FULL_EVENT" ? eventType : undefined,
+      customerName: name.trim(),
+      customerPhone: phone,
+      guests,
+      date,
+      paymentMethod: "ON_ARRIVAL" as const,
+      addOns: selected.map((addOnId) => ({ addOnId, quantity: 1 })),
+    };
+
+    let serverCode: string | null = null;
+    setSaving(true);
+    try {
+      const res = await fetch("/api/bookings", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
+      });
+      const data = (await res.json()) as { booking?: { code?: string }; error?: string };
+      if (res.ok && data.booking?.code) {
+        serverCode = data.booking.code;
+      } else if (res.status === 409) {
+        setError("هذا التاريخ محجوز — اختر يومًا آخر");
+        setSaving(false);
+        return;
+      }
+    } catch {
+      // يستمر الحجز محليًا عند فشل الاتصال
+    }
+    setSaving(false);
+
     const record: BookingRecord = {
-      code: bookingCode(),
+      code: serverCode ?? bookingCode(),
       farmId: farm.id,
       farmName: farm.name,
       customerName: name.trim(),
@@ -102,6 +161,9 @@ export function BookForm() {
   }
 
   return <BookFields
+    farms={farms}
+    addOns={addOns}
+    saving={saving}
     mode={mode} setMode={setMode}
     farmId={farmId} setFarmId={setFarmId}
     eventType={eventType} setEventType={setEventType}

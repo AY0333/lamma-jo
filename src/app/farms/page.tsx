@@ -4,7 +4,8 @@ export const dynamic = "force-dynamic";
 import Link from "next/link";
 import { Header, Footer } from "@/components/layout";
 import ImageCarousel from "@/components/ImageCarousel";
-import { FARMS, GOVERNORATES, formatJOD } from "@/lib/data";
+import { GOVERNORATES, formatJOD } from "@/lib/data";
+import { getFarms } from "@/lib/farms-db";
 
 export default async function FarmsPage({
   searchParams,
@@ -13,7 +14,7 @@ export default async function FarmsPage({
 }) {
   const params = await searchParams;
   const gov = params.governorate ?? "";
-  const farms = gov ? FARMS.filter((f) => f.governorate === gov) : FARMS;
+  const farms = await getFarms(gov ? { governorate: gov } : {});
 
   return (
     <>
@@ -35,7 +36,7 @@ export default async function FarmsPage({
           >
             الكل
           </Link>
-          {GOVERNORATES.filter((g) => FARMS.some((f) => f.governorate === g)).map((g) => (
+          {GOVERNORATES.map((g) => (
             <Link
               key={g}
               href={`/farms?governorate=${encodeURIComponent(g)}${params.mode ? `&mode=${params.mode}` : ""}`}

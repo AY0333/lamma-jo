@@ -1,8 +1,11 @@
 "use client";
 
-import { FARMS, ADDONS, EVENT_TYPES, formatJOD } from "@/lib/data";
+import { EVENT_TYPES, formatJOD, type AddOn, type Farm } from "@/lib/data";
 
 export interface FieldsProps {
+  farms: Farm[];
+  addOns: AddOn[];
+  saving: boolean;
   mode: "DAY_USE" | "FULL_EVENT";
   setMode: (m: "DAY_USE" | "FULL_EVENT") => void;
   farmId: string;
@@ -50,7 +53,7 @@ export default function BookFields(p: FieldsProps) {
         <label className="font-bold">🏡 المزرعة</label>
         <select value={p.farmId} onChange={(e) => p.setFarmId(e.target.value)}
           className="mt-1 w-full rounded-xl border border-stone-300 bg-white p-3">
-          {FARMS.map((f) => (
+          {p.farms.map((f) => (
             <option key={f.id} value={f.slug}>{f.name} — {f.governorate}</option>
           ))}
         </select>
